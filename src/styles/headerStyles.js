@@ -1,6 +1,45 @@
 import styled from "styled-components"
 
 export const HeaderNav = styled.div`
-  background: blueviolet;
-  color: #fff;
+  height: 0;
+  width: 100%;
+  position: absolute;
+  top: 72px;
+  right: 0;
+  left: 0;
+  z-index: 99;
+`
+export const Logo = styled.div`
+  a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: ${props => props.theme.text};
+  }
+
+  .lens {
+    height: 1.55rem;
+    width: 1.55rem;
+    margin: 0 3px;
+    border-radius: 100%;
+    display: inline-block;
+    position: relative;
+    bottom: -2px;
+  }
+`
+export const Menu = styled.div`
+  button {
+    transform-origin: center;
+    border: none;
+    padding: 20px;
+    background: none;
+    outline: none;
+
+    span {
+      width: 30px;
+      height: 6px;
+      display: block;
+      background: ${props => props.theme.text};
+      margin: 8px;
+    }
+  }
 `
