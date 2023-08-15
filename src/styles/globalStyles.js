@@ -57,4 +57,22 @@ ${props =>
     css`
       height: 0;
     `}
+
+    .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: 5px;
+  }
+
+  .studios {
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 20px;
+    color: ${props => props.theme.text};
+  }
 `

@@ -8,17 +8,28 @@ export const HeaderNav = styled.div`
   right: 0;
   left: 0;
   z-index: 99;
+
+  .switch-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    bottom: 20px;
+    left: 45px;
+    z-index: -10;
+  }
 `
 export const Logo = styled.div`
   a {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 800;
     color: ${props => props.theme.text};
   }
 
   .lens {
-    height: 1.55rem;
-    width: 1.55rem;
+    height: 1.6rem;
+    width: 1.6rem;
     margin: 0 3px;
     border-radius: 100%;
     display: inline-block;
@@ -35,8 +46,8 @@ export const Menu = styled.div`
     outline: none;
 
     span {
-      width: 30px;
-      height: 6px;
+      width: 33px;
+      height: 7px;
       display: block;
       background: ${props => props.theme.text};
       margin: 8px;
