@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "babel-plugin-styled-components": "^2.1.4",
     "framer-motion": "^10.15.2",
     "gatsby": "^5.11.0",
@@ -21,6 +24,7 @@
     "react-canvas": "^1.2.1",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.10.1",
     "react-intersection-observer": "^9.5.2",
     "styled-components": "^6.0.7",
     "styled-normalize": "^8.0.7"
