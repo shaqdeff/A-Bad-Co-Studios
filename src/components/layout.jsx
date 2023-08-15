@@ -44,17 +44,19 @@ const Layout = ({ children }) => {
   `)
 
   const darkTheme = {
-    background: "#141414",
+    background: "#0a0a0a",
     text: "#fdfbed",
+    green: "#496f56",
   }
 
   const lightTheme = {
     background: "#fdfbed",
     text: "#1f1f1f",
+    green: "#496f56",
   }
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <GlobalStyle />
       <Header />
       <main>{children}</main>
