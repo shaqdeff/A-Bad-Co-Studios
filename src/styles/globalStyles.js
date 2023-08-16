@@ -35,25 +35,25 @@ export const Flex = styled.div`
   align-items: center;
 
   ${props =>
-    props.spaceBetween &&
+    props.spacebetween &&
     css`
       justify-content: space-between;
     `}
 
   ${props =>
-    props.flexEnd &&
+    props.flexend &&
     css`
       justify-content: flex-end;
     `}
 
 ${props =>
-    props.alignTop &&
+    props.aligntop &&
     css`
       justify-content: flex-start;
     `}
 
 ${props =>
-    props.noHeight &&
+    props.noheight &&
     css`
       height: 0;
     `}
