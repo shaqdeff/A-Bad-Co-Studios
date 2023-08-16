@@ -49,13 +49,13 @@ const Layout = ({ children }) => {
   const darkTheme = {
     background: "#0a0a0a",
     text: "#ebebeb",
-    green: "#496f56",
+    red: "#a30000",
   }
 
   const lightTheme = {
     background: "#e0e0e0",
     text: "#1f1f1f",
-    green: "#496f56",
+    red: "#a30000",
   }
 
   const { currentTheme } = useGlobalStateContext()
