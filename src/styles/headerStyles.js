@@ -118,6 +118,7 @@ export const ToggleSwitch = styled.div`
     bottom: 0;
     left: 0;
     transition: background-color 0.2s ease;
+    cursor: none;
   }
   .toggle-switch .switch::before {
     position: absolute;
