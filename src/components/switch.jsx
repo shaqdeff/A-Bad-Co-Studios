@@ -36,12 +36,12 @@ const Switch = () => {
 
   return (
     <ToggleSwitch>
-      <SunIcon />
+      <MoonIcon />
       <label className="toggle-switch">
         <input type="checkbox" checked={isToggled} onChange={onToggle} />
         <span className="switch" />
       </label>
-      <MoonIcon />
+      <SunIcon />
     </ToggleSwitch>
   )
 }

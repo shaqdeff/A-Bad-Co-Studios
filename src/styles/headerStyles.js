@@ -57,7 +57,7 @@ export const Logo = styled.div`
       height: 1.2rem;
       width: 1.2rem;
       margin: 0 1px;
-      bottom: -2px;
+      bottom: -1px;
     }
   }
 `
