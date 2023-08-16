@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 // components
 import Header from "./header"
+import CustomCursor from "./customCursor"
 
 // styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -17,7 +18,7 @@ ${normalize}
 
 * {
   text-decoration: none;
-  /* cursor: none; */
+  cursor: none; 
 }
 
 html {
@@ -63,6 +64,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
+      <CustomCursor />
       <Header />
       <main>{children}</main>
     </ThemeProvider>
