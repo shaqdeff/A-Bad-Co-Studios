@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 // context
-import {
-  useGlobalStateContext,
-  useGlobalDispatchContext,
-} from "../context/globalContext"
+import { useGlobalDispatchContext, useGlobalStateContext } from "../context"
 
 // styled components
 import { ToggleSwitch } from "../styles"
