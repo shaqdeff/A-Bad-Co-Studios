@@ -76,7 +76,7 @@ export const ToggleSwitch = styled.div`
   .toggle-switch .switch {
     position: absolute;
     cursor: pointer;
-    background-color: #fbfbed;
+    background-color: #ebebeb;
     border-radius: 25px;
     top: 0;
     right: 0;
@@ -91,15 +91,15 @@ export const ToggleSwitch = styled.div`
     top: 7px;
     width: 12px;
     height: 12px;
-    background-color: #1f1f1f;
+    background-color: #0a0a0a;
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
   .toggle-switch input[type="checkbox"]:checked + .switch::before {
     transform: translateY(15px);
-    background-color: #fbfbed;
+    background-color: #ebebeb;
   }
   .toggle-switch input[type="checkbox"]:checked + .switch {
-    background-color: #1f1f1f;
+    background-color: #0a0a0a;
   }
 `
