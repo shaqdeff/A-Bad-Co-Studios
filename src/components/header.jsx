@@ -29,9 +29,17 @@ const Header = () => {
   }
 
   return (
-    <HeaderNav>
+    <HeaderNav
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: -72, opacity: 0 }}
+      transition={{
+        duration: 1,
+        delay: 0.7,
+        ease: [0.6, 0.05, 0.01, 0.9],
+      }}
+    >
       <Container>
-        <Flex spaceBetween noHeight>
+        <Flex spacebetween="true" noheight="true">
           <div className="logo-container">
             <Logo>
               <Link to="/">A BAD C</Link>
