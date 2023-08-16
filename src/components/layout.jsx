@@ -11,7 +11,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { normalize } from "styled-normalize"
 
 // context
-import { useGlobalStateContext } from "../context/globalContext"
+import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -33,7 +33,6 @@ body {
   overscroll-behavior: none;
   overflow-x: hidden;
 }
-
 `
 
 const Layout = ({ children }) => {
@@ -59,13 +58,19 @@ const Layout = ({ children }) => {
     red: "#a30000",
   }
 
-  const { currentTheme } = useGlobalStateContext()
+  const { currentTheme, cursorStyles } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
+
+  const onCursor = cursorType => {
+    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
+    dispatch({ type: "CURSOR_TYPE", cursorType: cursorType })
+  }
 
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <CustomCursor />
-      <Header />
+      <Header onCursor={onCursor} />
       <main>{children}</main>
     </ThemeProvider>
   )
