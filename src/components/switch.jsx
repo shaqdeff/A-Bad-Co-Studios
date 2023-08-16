@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 // context
 import {
@@ -12,7 +12,7 @@ import { ToggleSwitch } from "../styles"
 // icons
 import { MoonIcon, SunIcon } from "../assets"
 
-function Switch() {
+const Switch = () => {
   const dispatch = useGlobalDispatchContext()
   const { currentTheme } = useGlobalStateContext()
   const [isToggled, setIsToggled] = useState(false)
@@ -26,6 +26,16 @@ function Switch() {
 
     setIsToggled(!isToggled)
   }
+
+  useEffect(() => {
+    window.localStorage.setItem("theme", currentTheme)
+  }, [currentTheme])
+
+  useEffect(() => {
+    if (window.localStorage.getItem("theme") === "light") {
+      setIsToggled(true)
+    }
+  }, [])
 
   return (
     <ToggleSwitch>
