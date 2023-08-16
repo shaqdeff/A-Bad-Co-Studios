@@ -55,6 +55,8 @@ const Header = ({ onCursor }) => {
                     src={lens}
                     alt="lens"
                     className="lens"
+                    onMouseEnter={() => onCursor("pointer")}
+                    onMouseLeave={onCursor}
                     // onClick={toggleTheme}
                   />
                 </Link>
