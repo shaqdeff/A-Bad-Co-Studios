@@ -1,5 +1,4 @@
-import blackLogo from "./blk-logo.png"
-import whiteLogo from "./wht-logo.png"
-import lens from "./lens.png"
+import lens from "./logo/berry-lens.png"
+import record from "./logo/rec.png"
 
-export { blackLogo, whiteLogo, lens }
+export { lens, record }

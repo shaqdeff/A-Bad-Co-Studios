@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { motion } from "framer-motion"
 
 // components
 import Switch from "./switch"
@@ -8,7 +9,7 @@ import Switch from "./switch"
 import { Container, Flex, Logo, Menu, HeaderNav } from "../styles"
 
 // images
-import { lens } from "../images"
+import { lens, record } from "../images"
 
 // context
 import {
@@ -26,6 +27,11 @@ const Header = () => {
     } else {
       dispatch({ type: "TOGGLE_THEME", theme: "light" })
     }
+  }
+
+  const blinkingAnimation = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   }
 
   return (
@@ -55,9 +61,27 @@ const Header = () => {
               </span>
             </Logo>
 
-            <Link to="/" className="studios">
-              STUDIOS
-            </Link>
+            <div className="bottom-logo">
+              <Link to="/" className="studios">
+                STUDIOS
+              </Link>
+
+              <span>
+                <motion.img
+                  src={record}
+                  alt="record"
+                  className="record"
+                  initial="hidden"
+                  animate="visible"
+                  variants={blinkingAnimation}
+                  transition={{
+                    duration: 0.5,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                />
+              </span>
+            </div>
           </div>
 
           <Menu>

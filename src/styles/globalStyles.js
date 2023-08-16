@@ -64,7 +64,17 @@ ${props =>
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: 5px;
+    top: 10px;
+  }
+
+  .bottom-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    bottom: 5px;
+    left: 5px;
   }
 
   .studios {
@@ -72,7 +82,18 @@ ${props =>
     width: 100%;
     text-align: center;
     font-weight: bold;
-    margin-right: 20px;
+    margin-right: 10px;
     color: ${props => props.theme.text};
+  }
+
+  .record {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 3px;
+    border-radius: 100%;
+    display: inline-block;
+    position: relative;
+    bottom: -1px;
+    right: 8px;
   }
 `
