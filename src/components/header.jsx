@@ -12,12 +12,9 @@ import { Container, Flex, Logo, Menu, HeaderNav } from "../styles"
 import { lens, record } from "../images"
 
 // context
-import {
-  useGlobalStateContext,
-  useGlobalDispatchContext,
-} from "../context/globalContext"
+import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
 
-const Header = () => {
+const Header = ({ onCursor }) => {
   const dispatch = useGlobalDispatchContext()
   const { currentTheme } = useGlobalStateContext()
 
@@ -47,7 +44,10 @@ const Header = () => {
       <Container>
         <Flex spacebetween="true" noheight="true">
           <div className="logo-container">
-            <Logo>
+            <Logo
+              onMouseEnter={() => onCursor("hovered")}
+              onMouseLeave={onCursor}
+            >
               <Link to="/">A BAD C</Link>
               <span>
                 <Link to="/">
@@ -61,7 +61,11 @@ const Header = () => {
               </span>
             </Logo>
 
-            <div className="bottom-logo">
+            <div
+              className="bottom-logo"
+              onMouseEnter={() => onCursor("hovered")}
+              onMouseLeave={onCursor}
+            >
               <Link to="/" className="studios">
                 STUDIOS
               </Link>
