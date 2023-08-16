@@ -1,8 +1,8 @@
 import React, { createContext, useReducer, useContext } from "react"
 
 // define the context
-const GlobalStateContext = createContext()
-const GlobalDispatchContext = createContext()
+export const GlobalStateContext = createContext()
+export const GlobalDispatchContext = createContext()
 
 // reducer
 const globalReducer = (state, action) => {
