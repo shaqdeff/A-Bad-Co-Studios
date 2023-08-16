@@ -48,12 +48,12 @@ const Layout = ({ children }) => {
 
   const darkTheme = {
     background: "#0a0a0a",
-    text: "#fdfbed",
+    text: "#ebebeb",
     green: "#496f56",
   }
 
   const lightTheme = {
-    background: "#fdfbed",
+    background: "#e0e0e0",
     text: "#1f1f1f",
     green: "#496f56",
   }
