@@ -16,16 +16,17 @@ export const HeaderNav = styled(motion.div)`
     align-items: center;
     padding: 0 20px;
     position: relative;
-    bottom: 20px;
+    bottom: 30px;
     left: 45px;
     z-index: -10;
   }
 
+  /* media queries */
   @media (max-width: 767px) {
-    top: 42px;
+    top: 52px;
 
     .switch-box {
-      bottom: 16px;
+      bottom: 26px;
     }
   }
 `
@@ -56,6 +57,7 @@ export const Logo = styled.div`
       height: 1.2rem;
       width: 1.2rem;
       margin: 0 1px;
+      bottom: -2px;
     }
   }
 `
@@ -84,7 +86,7 @@ export const Menu = styled.div`
 
       span {
         width: 26px;
-        height: 6px;
+        height: 5px;
         margin: 6px 5px;
       }
     }
@@ -96,7 +98,9 @@ export const ToggleSwitch = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  position: relative;
+  bottom: 15px;
+  gap: 2px;
 
   .toggle-switch {
     position: relative;

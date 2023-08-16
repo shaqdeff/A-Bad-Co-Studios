@@ -140,4 +140,9 @@ export const Cursor = styled.div`
     height: 50px;
     border: 4px solid ${props => props.theme.red};
   }
+
+  /* media queries */
+  @media (max-width: 767px) {
+    display: none;
+  }
 `
