@@ -39,7 +39,7 @@ export const Logo = styled.div`
   .lens {
     height: 1.6rem;
     width: 1.6rem;
-    margin: 0 3px;
+    margin: 0 2px;
     border-radius: 100%;
     display: inline-block;
     position: relative;
