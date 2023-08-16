@@ -130,4 +130,14 @@ export const Cursor = styled.div`
   will-change: width, height, transform, border;
   pointer-events: none;
   z-index: 999;
+
+  &.pointer {
+    border: 4px solid ${props => props.theme.text} !important;
+  }
+  &.hovered {
+    background: transparent !important;
+    width: 50px;
+    height: 50px;
+    border: 4px solid ${props => props.theme.red};
+  }
 `
