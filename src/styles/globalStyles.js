@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: auto;
   height: 100%;
 
+  /* media queries */
   @media (min-width: 1024px) {
     max-width: 960px;
   }
@@ -95,5 +96,23 @@ ${props =>
     position: relative;
     bottom: -1px;
     right: 8px;
+  }
+
+  /* media queries */
+  @media (max-width: 767px) {
+    .bottom-logo {
+      bottom: 7px;
+      left: 7px;
+    }
+
+    .studios {
+      font-size: 10px;
+    }
+
+    .record {
+      height: 1.2rem;
+      width: 1.2rem;
+      margin-right: 3px;
+    }
   }
 `

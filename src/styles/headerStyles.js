@@ -20,6 +20,14 @@ export const HeaderNav = styled(motion.div)`
     left: 45px;
     z-index: -10;
   }
+
+  @media (max-width: 767px) {
+    top: 42px;
+
+    .switch-box {
+      bottom: 16px;
+    }
+  }
 `
 export const Logo = styled.div`
   a {
@@ -37,6 +45,19 @@ export const Logo = styled.div`
     position: relative;
     bottom: -2px;
   }
+
+  /* media queries */
+  @media (max-width: 767px) {
+    a {
+      font-size: 1.5rem;
+    }
+
+    .lens {
+      height: 1.2rem;
+      width: 1.2rem;
+      margin: 0 1px;
+    }
+  }
 `
 export const Menu = styled.div`
   button {
@@ -52,6 +73,20 @@ export const Menu = styled.div`
       display: block;
       background: ${props => props.theme.text};
       margin: 8px;
+    }
+  }
+
+  /* media queries */
+  @media (max-width: 767px) {
+    button {
+      padding: 10px;
+      margin-bottom: 1px;
+
+      span {
+        width: 26px;
+        height: 6px;
+        margin: 6px 5px;
+      }
     }
   }
 `
@@ -101,5 +136,18 @@ export const ToggleSwitch = styled.div`
   }
   .toggle-switch input[type="checkbox"]:checked + .switch {
     background-color: #0a0a0a;
+  }
+
+  @media (max-width: 767px) {
+    .toggle-switch {
+      width: 16px;
+      height: 32px;
+    }
+
+    /* media queries */
+    .toggle-switch .switch::before {
+      left: 2.4px;
+      top: 3px;
+    }
   }
 `
