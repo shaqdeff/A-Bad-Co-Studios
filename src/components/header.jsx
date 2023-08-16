@@ -49,14 +49,15 @@ const Header = ({ onCursor }) => {
               onMouseLeave={onCursor}
             >
               <Link to="/">A BAD C</Link>
-              <span>
+              <span
+                onMouseEnter={() => onCursor("pointer")}
+                onMouseLeave={onCursor}
+              >
                 <Link to="/">
                   <img
                     src={lens}
                     alt="lens"
                     className="lens"
-                    onMouseEnter={() => onCursor("pointer")}
-                    onMouseLeave={onCursor}
                     // onClick={toggleTheme}
                   />
                 </Link>
