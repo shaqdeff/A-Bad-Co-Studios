@@ -14,10 +14,10 @@ export const HeaderNav = styled(motion.div)`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 20px;
+    padding: 0;
     position: relative;
     bottom: 30px;
-    left: 45px;
+    left: 30px;
     z-index: -10;
   }
 
@@ -97,8 +97,9 @@ export const ToggleSwitch = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   position: relative;
+  /* left: 180px; */
   bottom: 15px;
   gap: 2px;
 
