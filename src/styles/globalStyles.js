@@ -94,7 +94,7 @@ ${props =>
     border-radius: 100%;
     display: inline-block;
     position: relative;
-    bottom: -1px;
+    bottom: -1.5px;
     right: 8px;
   }
 
