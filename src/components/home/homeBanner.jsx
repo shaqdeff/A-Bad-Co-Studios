@@ -45,7 +45,7 @@ const HomeBanner = () => {
       <BannerTitle>
         <Headline>Get</Headline>
         <Headline>
-          Glow<span>.</span>
+          Scene<span>.</span>
         </Headline>
       </BannerTitle>
     </Banner>

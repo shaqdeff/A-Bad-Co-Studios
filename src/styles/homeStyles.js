@@ -23,7 +23,7 @@ export const Canvas = styled.canvas`
   top: 0;
   left: 0;
   height: 100%;
-  display: block;
+  display: none;
 `
 
 export const BannerTitle = styled.h1`
@@ -35,7 +35,11 @@ export const BannerTitle = styled.h1`
 
   /* media queries */
   @media (max-width: 767px) {
-    bottom: -58px;
+    bottom: -55px;
+  }
+
+  @media (max-width: 350px) {
+    bottom: -45px;
   }
 `
 
@@ -47,19 +51,28 @@ export const Headline = styled.span`
   text-transform: uppercase;
 
   span {
-    font-size: 17rem;
+    font-size: 12rem;
     color: ${props => props.theme.red};
+    position: relative;
+    right: 10px;
   }
 
   /* media queries */
   @media (max-width: 767px) {
-    font-size: 7.65rem;
+    font-size: 6.8rem;
     line-height: 0.82;
 
     span {
-      font-size: 5rem;
-      position: relative;
-      right: 15px;
+      display: none;
+    }
+  }
+
+  @media (max-width: 350px) {
+    font-size: 5rem;
+    line-height: 0.82;
+
+    span {
+      display: none;
     }
   }
 `
