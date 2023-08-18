@@ -23,7 +23,7 @@ export const Canvas = styled.canvas`
   top: 0;
   left: 0;
   height: 100%;
-  display: none;
+  display: block;
 `
 
 export const BannerTitle = styled.h1`
