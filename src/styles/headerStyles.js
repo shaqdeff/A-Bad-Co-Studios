@@ -52,14 +52,14 @@ export const Logo = styled.div`
   /* media queries */
   @media (max-width: 767px) {
     a {
-      font-size: 1.5rem;
+      font-size: 1.65rem;
     }
 
     .lens {
-      height: 1.2rem;
-      width: 1.2rem;
+      height: 1.25rem;
+      width: 1.25rem;
       margin: 0 1px;
-      bottom: -1px;
+      bottom: 0;
     }
   }
 `

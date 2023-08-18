@@ -101,12 +101,12 @@ ${props =>
   /* media queries */
   @media (max-width: 767px) {
     .bottom-logo {
-      bottom: 7px;
+      bottom: 6px;
       left: 7px;
     }
 
     .studios {
-      font-size: 10px;
+      font-size: 11px;
     }
 
     .record {
@@ -141,8 +141,15 @@ export const Cursor = styled.div`
     border: 5px solid ${props => props.theme.red};
   }
 
+  &.drawing {
+    border: 5px solid ${props => props.theme.green};
+    mix-blend-mode: difference;
+  }
+
   /* media queries */
   @media (max-width: 767px) {
     display: none;
   }
 `
+
+export const Dragger = styled.div``
