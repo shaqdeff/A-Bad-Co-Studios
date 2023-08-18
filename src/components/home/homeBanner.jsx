@@ -27,48 +27,60 @@ const HomeBanner = ({ onCursor }) => {
   const drawing = useRef(false)
   const lastX = useRef(0)
   const lastY = useRef(0)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
+  const lastPosition = useRef({ x: 0, y: 0 })
 
   const handleDraggerTouchStart = e => {
     e.preventDefault()
     drawing.current = true
     const touch = e.touches[0]
-    lastX.current = touch.clientX - dragger.current.getBoundingClientRect().left
-    lastY.current = touch.clientY - dragger.current.getBoundingClientRect().top
+    lastPosition.current = {
+      x: touch.clientX - dragger.current.getBoundingClientRect().left,
+      y: touch.clientY - dragger.current.getBoundingClientRect().top,
+    }
   }
 
   const handleDraggerTouchMove = e => {
     if (!drawing.current) return
+
     const touch = e.touches[0]
     const currentX = touch.pageX - canvas.current.getBoundingClientRect().left
     const currentY = touch.pageY - canvas.current.getBoundingClientRect().top
 
     const drawingCtx = canvas.current.getContext("2d")
 
-    if (!lastX.current && !lastY.current) {
-      lastX.current = currentX
-      lastY.current = currentY
-      drawingCtx.moveTo(currentX, currentY)
-      return
-    }
+    requestAnimationFrame(() => {
+      drawingCtx.lineJoin = "round"
+      drawingCtx.globalCompositeOperation = "destination-out"
+      drawingCtx.lineTo(currentX, currentY)
+      drawingCtx.closePath()
+      drawingCtx.lineWidth = 50
+      drawingCtx.stroke()
 
-    drawingCtx.lineJoin = "round"
-    drawingCtx.globalCompositeOperation = "destination-out"
-    drawingCtx.lineTo(currentX, currentY)
-    drawingCtx.closePath()
-    drawingCtx.lineWidth = 70
-    drawingCtx.stroke()
+      lastPosition.current = { x: currentX, y: currentY }
 
-    lastX.current = currentX
-    lastY.current = currentY
-
-    dragger.current.style.left = `${currentX}px`
-    dragger.current.style.top = `${currentY}px`
+      dragger.current.style.left = `${currentX}px`
+      dragger.current.style.top = `${currentY}px`
+    })
   }
 
   const handleDraggerTouchEnd = () => {
     drawing.current = false
   }
+
+  // Throttle the touchmove event handling
+  const throttle = (func, delay) => {
+    let timeoutId
+    return (...args) => {
+      if (!timeoutId) {
+        timeoutId = setTimeout(() => {
+          func(...args)
+          timeoutId = null
+        }, delay)
+      }
+    }
+  }
+
+  const handleTouchMoveThrottled = throttle(handleDraggerTouchMove, 4)
 
   useEffect(() => {
     const renderingElement = canvas.current
@@ -117,9 +129,7 @@ const HomeBanner = ({ onCursor }) => {
       renderingElement.removeEventListener("mouseover", handleMouseOver)
       renderingElement.removeEventListener("mouseup", handleMouseUp)
       renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
-      dragger.current.removeEventListener("touchstart", handleDraggerTouchStart)
-      dragger.current.removeEventListener("touchmove", handleDraggerTouchMove)
-      dragger.current.removeEventListener("touchend", handleDraggerTouchEnd)
+      dragger.current.removeEventListener("touchmove", handleTouchMoveThrottled)
     }
   }, [currentTheme, size.width, size.height])
 
