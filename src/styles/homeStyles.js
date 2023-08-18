@@ -23,7 +23,7 @@ export const Canvas = styled.canvas`
   position: absolute;
   top: 0;
   left: 0;
-  height: 105vh;
+  height: 100.06vh;
   display: block;
 `
 
