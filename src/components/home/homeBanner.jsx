@@ -27,6 +27,7 @@ const HomeBanner = ({ onCursor }) => {
   const drawing = useRef(false)
   const lastX = useRef(0)
   const lastY = useRef(0)
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 
   const handleDraggerTouchStart = e => {
     e.preventDefault()
@@ -38,10 +39,29 @@ const HomeBanner = ({ onCursor }) => {
 
   const handleDraggerTouchMove = e => {
     if (!drawing.current) return
-    e.preventDefault()
     const touch = e.touches[0]
-    const currentX = touch.clientX - lastX.current
-    const currentY = touch.clientY - lastY.current
+    const currentX = touch.pageX - canvas.current.getBoundingClientRect().left
+    const currentY = touch.pageY - canvas.current.getBoundingClientRect().top
+
+    const drawingCtx = canvas.current.getContext("2d")
+
+    if (!lastX.current && !lastY.current) {
+      lastX.current = currentX
+      lastY.current = currentY
+      drawingCtx.moveTo(currentX, currentY)
+      return
+    }
+
+    drawingCtx.lineJoin = "round"
+    drawingCtx.globalCompositeOperation = "destination-out"
+    drawingCtx.lineTo(currentX, currentY)
+    drawingCtx.closePath()
+    drawingCtx.lineWidth = 70
+    drawingCtx.stroke()
+
+    lastX.current = currentX
+    lastY.current = currentY
+
     dragger.current.style.left = `${currentX}px`
     dragger.current.style.top = `${currentY}px`
   }
