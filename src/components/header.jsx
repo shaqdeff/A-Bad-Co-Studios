@@ -37,7 +37,7 @@ const Header = ({ onCursor }) => {
       initial={{ y: -72, opacity: 0 }}
       transition={{
         duration: 1,
-        delay: 0.8,
+        delay: 0.7,
         ease: [0.6, 0.05, 0.01, 0.9],
       }}
     >
