@@ -34,6 +34,10 @@ export const BannerTitle = styled.h1`
   pointer-events: none;
 
   /* media queries */
+  @media (max-width: 1080px) {
+    bottom: -95px;
+  }
+
   @media (max-width: 767px) {
     bottom: -55px;
   }
