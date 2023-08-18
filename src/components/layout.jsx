@@ -50,12 +50,14 @@ const Layout = ({ children }) => {
     background: "#0a0a0a",
     text: "#ebebeb",
     red: "#a30000",
+    green: "#496f56",
   }
 
   const lightTheme = {
     background: "#e0e0e0",
     text: "#1f1f1f",
     red: "#a30000",
+    green: "#496f56",
   }
 
   const { currentTheme, cursorStyles } = useGlobalStateContext()
