@@ -12,7 +12,7 @@ import { useGlobalStateContext } from "../../context"
 // assets
 import { lights } from "../../assets"
 
-const HomeBanner = () => {
+const HomeBanner = ({ onCursor }) => {
   // Get the window size using a custom hook
   const size = useWindowSize()
 
@@ -86,15 +86,19 @@ const HomeBanner = () => {
     }
   }, [currentTheme, size.width, size.height])
 
-  // Return the JSX structure of the component
   return (
     <Banner>
       <Video>
         <video src={lights} height="100%" width="100%" loop autoPlay muted />
       </Video>
 
-      {/* Create a canvas element with dynamic size */}
-      <Canvas height={size.height} width={size.width} ref={canvas} />
+      <Canvas
+        height={size.height}
+        width={size.width}
+        ref={canvas}
+        onMouseEnter={() => onCursor("hovered")}
+        onMouseLeave={onCursor}
+      />
 
       <BannerTitle>
         <Headline>Get</Headline>
