@@ -55,7 +55,7 @@ export const Headline = styled.span`
   text-transform: uppercase;
 
   span {
-    font-size: 12rem;
+    font-size: 15rem;
     color: ${props => props.theme.green};
     position: relative;
     right: 5px;

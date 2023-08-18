@@ -34,10 +34,16 @@ const HomeBanner = ({ onCursor }) => {
     const renderingElement = canvas.current
     const renderingCtx = renderingElement.getContext("2d")
 
+    // Clear the canvas
+    renderingCtx.clearRect(0, 0, size.width, size.height)
+
     // Set the canvas background color based on the current theme
     renderingCtx.globalCompositeOperation = "source-over"
     renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#e0e0e0"
     renderingCtx.fillRect(0, 0, size.width, size.height)
+
+    // remove the drawing after changing theme
+    drawing.current = false
 
     // Event handler for when the mouse is over the canvas
     const handleMouseOver = e => {
