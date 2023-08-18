@@ -157,8 +157,8 @@ export const Dragger = styled.div`
   position: absolute;
   top: 60%;
   left: 70%;
-  width: 55px;
-  height: 55px;
+  width: 58px;
+  height: 58px;
   background: transparent;
   color: ${props => props.theme.green};
   border: 5px solid ${props => props.theme.green};
@@ -168,6 +168,7 @@ export const Dragger = styled.div`
   align-items: center;
   font-size: 18px;
   font-weight: 800;
+  text-align: center;
   transform: rotate(33deg);
   z-index: 999;
 
