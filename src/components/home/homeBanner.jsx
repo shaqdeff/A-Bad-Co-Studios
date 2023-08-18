@@ -32,11 +32,18 @@ const HomeBanner = ({ onCursor }) => {
   const handleDraggerTouchStart = e => {
     e.preventDefault()
     drawing.current = true
+
     const touch = e.touches[0]
     const canvasRect = canvas.current.getBoundingClientRect()
+    const draggerCenterX =
+      dragger.current.offsetLeft + dragger.current.offsetWidth / 2
+    const draggerCenterY =
+      dragger.current.offsetTop + dragger.current.offsetHeight / 2
+
+    const lineWidth = 95
     lastPosition.current = {
-      x: touch.clientX - canvasRect.left,
-      y: touch.clientY - canvasRect.top,
+      x: draggerCenterX - canvasRect.left - lineWidth / 2,
+      y: draggerCenterY - canvasRect.top - lineWidth / 2,
     }
   }
 
@@ -47,6 +54,14 @@ const HomeBanner = ({ onCursor }) => {
     const currentX = touch.clientX - canvas.current.getBoundingClientRect().left
     const currentY = touch.clientY - canvas.current.getBoundingClientRect().top
 
+    const draggerWidth = dragger.current.offsetWidth
+    const draggerHeight = dragger.current.offsetHeight
+    const lineWidth = 95
+
+    // Calculate the dragger's center position based on the pointer's position
+    const draggerCenterX = currentX - draggerWidth / 2
+    const draggerCenterY = currentY - draggerHeight / 2
+
     const drawingCtx = canvas.current.getContext("2d")
 
     requestAnimationFrame(() => {
@@ -55,13 +70,22 @@ const HomeBanner = ({ onCursor }) => {
       drawingCtx.moveTo(lastPosition.current.x, lastPosition.current.y)
       drawingCtx.lineTo(currentX, currentY)
       drawingCtx.closePath()
-      drawingCtx.lineWidth = 90
+      drawingCtx.lineWidth = lineWidth
       drawingCtx.stroke()
 
       lastPosition.current = { x: currentX, y: currentY }
 
-      dragger.current.style.left = `${currentX}px`
-      dragger.current.style.top = `${currentY}px`
+      // Adjust the pointer position to be exactly in the center of the dragger
+      const pointerOffsetX = draggerWidth / 2 - lineWidth / 2
+      const pointerOffsetY = draggerHeight / 2 - lineWidth / 2
+
+      // Adjust the dragger's position to be in the middle of the line width
+      const draggerOffsetX = (draggerWidth - lineWidth) / 2
+      // Ensure that the dragger is at least 1 pixel from the top of the drawing
+      const draggerOffsetY = Math.max((draggerHeight - lineWidth) / 2, 1)
+
+      dragger.current.style.left = `${draggerCenterX - pointerOffsetX}px`
+      dragger.current.style.top = `${draggerCenterY - pointerOffsetY}px`
     })
   }
 
