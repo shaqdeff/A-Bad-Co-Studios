@@ -136,9 +136,9 @@ export const Cursor = styled.div`
   }
   &.hovered {
     background: transparent !important;
-    width: 50px;
-    height: 50px;
-    border: 4px solid ${props => props.theme.red};
+    width: 55px;
+    height: 55px;
+    border: 5px solid ${props => props.theme.red};
   }
 
   /* media queries */
