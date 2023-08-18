@@ -15,6 +15,7 @@ export const Video = styled.div`
 
   video {
     object-fit: cover;
+    z-index: -10;
   }
 `
 
@@ -22,7 +23,7 @@ export const Canvas = styled.canvas`
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 105vh;
   display: block;
 `
 
