@@ -52,7 +52,7 @@ export const Headline = styled.span`
 
   span {
     font-size: 12rem;
-    color: ${props => props.theme.red};
+    color: ${props => props.theme.green};
     position: relative;
     right: 10px;
   }
@@ -63,6 +63,7 @@ export const Headline = styled.span`
     line-height: 0.82;
 
     span {
+      font-size: 3rem;
       display: none;
     }
   }

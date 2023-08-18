@@ -17,8 +17,9 @@ export const HeaderNav = styled(motion.div)`
     padding: 0;
     position: relative;
     bottom: 30px;
-    left: 30px;
+    left: 98.5%;
     z-index: -10;
+    width: fit-content;
   }
 
   /* media queries */
@@ -27,6 +28,7 @@ export const HeaderNav = styled(motion.div)`
 
     .switch-box {
       bottom: 26px;
+      left: 97%;
     }
   }
 `
@@ -99,7 +101,6 @@ export const ToggleSwitch = styled.div`
   align-items: center;
   justify-content: flex-end;
   position: relative;
-  /* left: 180px; */
   bottom: 15px;
   gap: 2px;
 
@@ -152,7 +153,7 @@ export const ToggleSwitch = styled.div`
 
     /* media queries */
     .toggle-switch .switch::before {
-      left: 2.4px;
+      left: 2px;
       top: 3px;
     }
   }
