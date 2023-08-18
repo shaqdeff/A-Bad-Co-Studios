@@ -54,10 +54,14 @@ export const Headline = styled.span`
     font-size: 12rem;
     color: ${props => props.theme.green};
     position: relative;
-    right: 10px;
+    right: 5px;
   }
 
   /* media queries */
+  @media (max-width: 1080px) {
+    font-size: 15rem;
+  }
+
   @media (max-width: 767px) {
     font-size: 6.8rem;
     line-height: 0.82;
