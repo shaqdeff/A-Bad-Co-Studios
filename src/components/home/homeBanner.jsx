@@ -33,9 +33,10 @@ const HomeBanner = ({ onCursor }) => {
     e.preventDefault()
     drawing.current = true
     const touch = e.touches[0]
+    const canvasRect = canvas.current.getBoundingClientRect()
     lastPosition.current = {
-      x: touch.clientX - dragger.current.getBoundingClientRect().left,
-      y: touch.clientY - dragger.current.getBoundingClientRect().top,
+      x: touch.clientX - canvasRect.left,
+      y: touch.clientY - canvasRect.top,
     }
   }
 
@@ -43,17 +44,18 @@ const HomeBanner = ({ onCursor }) => {
     if (!drawing.current) return
 
     const touch = e.touches[0]
-    const currentX = touch.pageX - canvas.current.getBoundingClientRect().left
-    const currentY = touch.pageY - canvas.current.getBoundingClientRect().top
+    const currentX = touch.clientX - canvas.current.getBoundingClientRect().left
+    const currentY = touch.clientY - canvas.current.getBoundingClientRect().top
 
     const drawingCtx = canvas.current.getContext("2d")
 
     requestAnimationFrame(() => {
       drawingCtx.lineJoin = "round"
       drawingCtx.globalCompositeOperation = "destination-out"
+      drawingCtx.moveTo(lastPosition.current.x, lastPosition.current.y)
       drawingCtx.lineTo(currentX, currentY)
       drawingCtx.closePath()
-      drawingCtx.lineWidth = 50
+      drawingCtx.lineWidth = 70
       drawingCtx.stroke()
 
       lastPosition.current = { x: currentX, y: currentY }
@@ -122,14 +124,16 @@ const HomeBanner = ({ onCursor }) => {
     renderingElement.addEventListener("mouseup", handleMouseUp)
     renderingElement.addEventListener("mousemove", handleMouseMoveEvent)
     dragger.current.addEventListener("touchstart", handleDraggerTouchStart)
-    dragger.current.addEventListener("touchmove", handleDraggerTouchMove)
+    dragger.current.addEventListener("touchmove", handleTouchMoveThrottled)
     dragger.current.addEventListener("touchend", handleDraggerTouchEnd)
 
     return () => {
       renderingElement.removeEventListener("mouseover", handleMouseOver)
       renderingElement.removeEventListener("mouseup", handleMouseUp)
       renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
+      dragger.current.removeEventListener("touchstart", handleDraggerTouchStart)
       dragger.current.removeEventListener("touchmove", handleTouchMoveThrottled)
+      dragger.current.removeEventListener("touchend", handleDraggerTouchEnd)
     }
   }, [currentTheme, size.width, size.height])
 
