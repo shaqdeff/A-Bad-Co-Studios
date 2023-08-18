@@ -23,37 +23,30 @@ const HomeBanner = ({ onCursor }) => {
   const size = useWindowSize()
   const { currentTheme } = useGlobalStateContext()
   const canvas = useRef(null)
+  const dragger = useRef(null)
   const drawing = useRef(false)
   const lastX = useRef(0)
   const lastY = useRef(0)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 
-  const handleTouchStart = e => {
+  const handleDraggerTouchStart = e => {
+    e.preventDefault()
     drawing.current = true
     const touch = e.touches[0]
-    lastX.current = touch.pageX - canvas.current.getBoundingClientRect().left
-    lastY.current = touch.pageY - canvas.current.getBoundingClientRect().top
+    lastX.current = touch.clientX - dragger.current.getBoundingClientRect().left
+    lastY.current = touch.clientY - dragger.current.getBoundingClientRect().top
   }
 
-  const handleTouchMove = e => {
+  const handleDraggerTouchMove = e => {
     if (!drawing.current) return
+    e.preventDefault()
     const touch = e.touches[0]
-    const currentX = touch.pageX - canvas.current.getBoundingClientRect().left
-    const currentY = touch.pageY - canvas.current.getBoundingClientRect().top
-    setCursorPosition({ x: currentX, y: currentY })
-    const drawingCtx = canvas.current.getContext("2d")
-    drawingCtx.globalCompositeOperation = "destination-out"
-    drawingCtx.lineJoin = "round"
-    drawingCtx.moveTo(lastX.current, lastY.current)
-    drawingCtx.lineTo(currentX, currentY)
-    drawingCtx.closePath()
-    drawingCtx.lineWidth = 70
-    drawingCtx.stroke()
-    lastX.current = currentX
-    lastY.current = currentY
+    const currentX = touch.clientX - lastX.current
+    const currentY = touch.clientY - lastY.current
+    dragger.current.style.left = `${currentX}px`
+    dragger.current.style.top = `${currentY}px`
   }
 
-  const handleTouchEnd = () => {
+  const handleDraggerTouchEnd = () => {
     drawing.current = false
   }
 
@@ -96,17 +89,17 @@ const HomeBanner = ({ onCursor }) => {
     renderingElement.addEventListener("mouseover", handleMouseOver)
     renderingElement.addEventListener("mouseup", handleMouseUp)
     renderingElement.addEventListener("mousemove", handleMouseMoveEvent)
-    renderingElement.addEventListener("touchstart", handleTouchStart)
-    renderingElement.addEventListener("touchmove", handleTouchMove)
-    renderingElement.addEventListener("touchend", handleTouchEnd)
+    dragger.current.addEventListener("touchstart", handleDraggerTouchStart)
+    dragger.current.addEventListener("touchmove", handleDraggerTouchMove)
+    dragger.current.addEventListener("touchend", handleDraggerTouchEnd)
 
     return () => {
       renderingElement.removeEventListener("mouseover", handleMouseOver)
       renderingElement.removeEventListener("mouseup", handleMouseUp)
       renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
-      renderingElement.removeEventListener("touchstart", handleTouchStart)
-      renderingElement.removeEventListener("touchmove", handleTouchMove)
-      renderingElement.removeEventListener("touchend", handleTouchEnd)
+      dragger.current.removeEventListener("touchstart", handleDraggerTouchStart)
+      dragger.current.removeEventListener("touchmove", handleDraggerTouchMove)
+      dragger.current.removeEventListener("touchend", handleDraggerTouchEnd)
     }
   }, [currentTheme, size.width, size.height])
 
@@ -137,7 +130,9 @@ const HomeBanner = ({ onCursor }) => {
         <video src={lights} height="100%" width="100%" loop autoPlay muted />
       </Video>
 
-      <Dragger>Drag</Dragger>
+      <Dragger ref={dragger} onTouchStart={handleDraggerTouchStart}>
+        Drag
+      </Dragger>
 
       <Canvas
         height={size.height}
@@ -145,9 +140,6 @@ const HomeBanner = ({ onCursor }) => {
         ref={canvas}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       />
 
       <BannerTitle variants={parent} initial="initial" animate="animate">
