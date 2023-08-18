@@ -152,4 +152,26 @@ export const Cursor = styled.div`
   }
 `
 
-export const Dragger = styled.div``
+export const Dragger = styled.div`
+  display: block;
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  width: 55px;
+  height: 55px;
+  background: transparent;
+  color: ${props => props.theme.green};
+  border: 5px solid ${props => props.theme.green};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 800;
+  transform: rotate(33deg);
+  z-index: 999;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`

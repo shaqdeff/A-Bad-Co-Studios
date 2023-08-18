@@ -137,6 +137,8 @@ const HomeBanner = ({ onCursor }) => {
         <video src={lights} height="100%" width="100%" loop autoPlay muted />
       </Video>
 
+      <Dragger>Drag</Dragger>
+
       <Canvas
         height={size.height}
         width={size.width}
@@ -146,7 +148,7 @@ const HomeBanner = ({ onCursor }) => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-      ></Canvas>
+      />
 
       <BannerTitle variants={parent} initial="initial" animate="animate">
         <Headline variants={child}>Get</Headline>
