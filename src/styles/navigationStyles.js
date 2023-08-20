@@ -86,6 +86,7 @@ export const NavList = styled.div`
           margin-right: 20px;
           display: flex;
           align-items: center;
+          gap: 10px;
 
           svg {
             width: 100px;
@@ -100,6 +101,7 @@ export const NavList = styled.div`
       @media (max-width: 767px) {
         .link {
           font-size: 1.6rem;
+          left: 120px;
         }
 
         svg {
@@ -111,3 +113,40 @@ export const NavList = styled.div`
 `
 
 export const NavFooter = styled.div``
+
+export const NavVideos = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28%;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background: #0a0a0a;
+
+  .reveal {
+    width: 100%;
+    background: ${props => props.theme.green};
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .video {
+    background: #0a0a0a;
+    position: absolute;
+    height: 100%;
+    margin: 0;
+    z-index: -1;
+
+    video {
+      height: 100%;
+    }
+  }
+
+  /* media queries */
+  @media (max-width: 767px) {
+    display: none;
+  }
+`

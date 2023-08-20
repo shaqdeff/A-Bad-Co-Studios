@@ -7,6 +7,7 @@ import {
   CloseNav,
   NavList,
   NavFooter,
+  NavVideos,
 } from "./navigationStyles"
 
 export {
@@ -28,4 +29,5 @@ export {
   CloseNav,
   NavList,
   NavFooter,
+  NavVideos,
 }
