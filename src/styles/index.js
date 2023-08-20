@@ -1,9 +1,13 @@
-import { Container } from "./globalStyles"
-import { Cursor } from "./globalStyles"
-import { Dragger } from "./globalStyles"
-import { Flex } from "./globalStyles"
+import { Container, Cursor, Dragger, Flex } from "./globalStyles"
 import { HeaderNav, Logo, Menu, ToggleSwitch } from "./headerStyles"
 import { Banner, Video, Canvas, BannerTitle, Headline } from "./homeStyles"
+import {
+  Nav,
+  NavHeader,
+  CloseNav,
+  NavList,
+  NavFooter,
+} from "./navigationStyles"
 
 export {
   Container,
@@ -19,4 +23,9 @@ export {
   Canvas,
   BannerTitle,
   Headline,
+  Nav,
+  NavHeader,
+  CloseNav,
+  NavList,
+  NavFooter,
 }
