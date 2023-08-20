@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import { motion } from "framer-motion"
 
 // styled components
 import {
@@ -10,12 +11,22 @@ import {
   CloseNav,
   NavList,
   NavFooter,
+  NavVideos,
 } from "../styles"
 
 // data
 import { navRoutes } from "../data"
 
+// assets
+import { beginnings, next, lights, colorist, wild } from "../assets"
+
 const Navigation = () => {
+  const [reveal, setRevealVideo] = useState({
+    show: true,
+    video: beginnings,
+    key: "0",
+  })
+
   return (
     <Nav>
       <Container>
@@ -36,7 +47,17 @@ const Navigation = () => {
             {navRoutes.map(route => (
               <li key={route.id}>
                 <Link to={`/projects/${route.path}`}>
-                  <div className="link">
+                  <motion.div
+                    initial={{ x: -108 }}
+                    whileHover={{
+                      x: -40,
+                      transition: {
+                        duration: 0.4,
+                        ease: [0.6, 0.05, 0.01, 0.9],
+                      },
+                    }}
+                    className="link"
+                  >
                     <span className="arrow">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -50,14 +71,24 @@ const Navigation = () => {
                       </svg>
                       {route.title}
                     </span>
-                  </div>
+                  </motion.div>
                 </Link>
               </li>
             ))}
 
             <li>
               <Link to="/projects/gallery">
-                <div className="link">
+                <motion.div
+                  initial={{ x: -108 }}
+                  whileHover={{
+                    x: -40,
+                    transition: {
+                      duration: 0.4,
+                      ease: [0.6, 0.05, 0.01, 0.9],
+                    },
+                  }}
+                  className="link"
+                >
                   <span className="arrow">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -71,13 +102,20 @@ const Navigation = () => {
                     </svg>
                     gallery
                   </span>
-                </div>
+                </motion.div>
               </Link>
             </li>
           </ul>
         </NavList>
 
         <NavFooter></NavFooter>
+
+        <NavVideos>
+          <div className="reveal"></div>
+          <div className="video">
+            <video src={reveal.video} autoPlay muted loop></video>
+          </div>
+        </NavVideos>
       </Container>
     </Nav>
   )
