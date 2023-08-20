@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 // components
 import Header from "./header"
 import CustomCursor from "./customCursor"
+import Navigation from "./navigation"
 
 // styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -73,6 +74,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <CustomCursor />
       <Header onCursor={onCursor} />
+      <Navigation />
       <main>{children}</main>
     </ThemeProvider>
   )
