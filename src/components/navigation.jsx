@@ -21,8 +21,8 @@ import { navRoutes } from "../data"
 import { beginnings, next, lights, colorist, wild } from "../assets"
 
 const Navigation = () => {
-  const [reveal, setRevealVideo] = useState({
-    show: true,
+  const [revealVideo, setRevealVideo] = useState({
+    show: false,
     video: beginnings,
     key: "0",
   })
@@ -45,8 +45,24 @@ const Navigation = () => {
         <NavList>
           <ul>
             {navRoutes.map(route => (
-              <li key={route.id}>
-                <Link to={`/projects/${route.path}`}>
+              <motion.li
+                key={route.id}
+                onHoverStart={() =>
+                  setRevealVideo({
+                    show: true,
+                    video: route.video,
+                    key: route.id,
+                  })
+                }
+                onHoverEnd={() =>
+                  setRevealVideo({
+                    show: false,
+                    video: route.video,
+                    key: route.id,
+                  })
+                }
+              >
+                <Link to={`/projects${route.path}`}>
                   <motion.div
                     initial={{ x: -108 }}
                     whileHover={{
@@ -73,11 +89,11 @@ const Navigation = () => {
                     </span>
                   </motion.div>
                 </Link>
-              </li>
+              </motion.li>
             ))}
 
             <li>
-              <Link to="/projects/gallery">
+              <Link to="/">
                 <motion.div
                   initial={{ x: -108 }}
                   whileHover={{
@@ -111,9 +127,12 @@ const Navigation = () => {
         <NavFooter></NavFooter>
 
         <NavVideos>
-          <div className="reveal"></div>
+          <motion.div
+            animate={{ width: revealVideo.show ? 0 : "100%" }}
+            className="reveal"
+          ></motion.div>
           <div className="video">
-            <video src={reveal.video} autoPlay muted loop></video>
+            <video src={revealVideo.video} autoPlay muted loop></video>
           </div>
         </NavVideos>
       </Container>
