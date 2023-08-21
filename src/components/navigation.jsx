@@ -111,7 +111,7 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                   ))}
 
                   <li>
-                    <Link to="/">
+                    <Link to="/projects/gallery">
                       <motion.div
                         initial={{ x: -108 }}
                         whileHover={{
