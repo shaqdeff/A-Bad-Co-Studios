@@ -14,7 +14,7 @@ import { lens, record } from "../images"
 // context
 import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
 
-const Header = ({ onCursor }) => {
+const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
   const dispatch = useGlobalDispatchContext()
   const { currentTheme } = useGlobalStateContext()
 
@@ -91,7 +91,7 @@ const Header = ({ onCursor }) => {
             </div>
           </div>
 
-          <Menu>
+          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
             <button>
               <span></span>
               <span></span>
