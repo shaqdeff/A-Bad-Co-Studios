@@ -91,7 +91,11 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
             </div>
           </div>
 
-          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
+          <Menu
+            onClick={() => setToggleMenu(!toggleMenu)}
+            onMouseEnter={() => onCursor("hovered")}
+            onMouseLeave={onCursor}
+          >
             <button>
               <span></span>
               <span></span>
