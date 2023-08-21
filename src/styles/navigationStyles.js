@@ -80,6 +80,9 @@ export const NavList = styled.div`
         position: relative;
         display: flex;
         align-items: center;
+        &:hover {
+          color: ${props => props.theme.text};
+        }
 
         .arrow {
           height: 76px;
@@ -91,7 +94,7 @@ export const NavList = styled.div`
           svg {
             width: 100px;
             path {
-              fill: ${props => props.theme.background};
+              fill: ${props => props.theme.text};
             }
           }
         }

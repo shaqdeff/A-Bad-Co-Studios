@@ -20,7 +20,7 @@ import { navRoutes } from "../data"
 // assets
 import { beginnings, next, lights, colorist, wild } from "../assets"
 
-const Navigation = ({ toggleMenu, setToggleMenu }) => {
+const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
   const [revealVideo, setRevealVideo] = useState({
     show: false,
     video: beginnings,
@@ -45,7 +45,11 @@ const Navigation = ({ toggleMenu, setToggleMenu }) => {
                 <Flex spacebetween="true" noheight="true">
                   <h2>Projects</h2>
 
-                  <CloseNav onClick={() => setToggleMenu(!toggleMenu)}>
+                  <CloseNav
+                    onClick={() => setToggleMenu(!toggleMenu)}
+                    onMouseEnter={() => onCursor("pointer")}
+                    onMouseLeave={onCursor}
+                  >
                     <button>
                       <span></span>
                       <span></span>
@@ -73,6 +77,8 @@ const Navigation = ({ toggleMenu, setToggleMenu }) => {
                           key: route.id,
                         })
                       }
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={onCursor}
                     >
                       <Link to={`/projects${route.path}`}>
                         <motion.div
