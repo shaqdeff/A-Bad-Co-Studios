@@ -140,21 +140,33 @@ const HomeBanner = ({ onCursor }) => {
       lastY.current = currentY
     }
 
-    renderingElement.addEventListener("mouseover", handleMouseOver)
-    renderingElement.addEventListener("mouseup", handleMouseUp)
-    renderingElement.addEventListener("mousemove", handleMouseMoveEvent)
-    dragger.current.addEventListener("touchstart", handleDraggerTouchStart)
-    dragger.current.addEventListener("touchmove", handleTouchMoveThrottled)
-    dragger.current.addEventListener("touchend", handleDraggerTouchEnd)
-
-    return () => {
+    const cleanup = () => {
       renderingElement.removeEventListener("mouseover", handleMouseOver)
       renderingElement.removeEventListener("mouseup", handleMouseUp)
       renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
-      dragger.current.removeEventListener("touchstart", handleDraggerTouchStart)
-      dragger.current.removeEventListener("touchmove", handleTouchMoveThrottled)
-      dragger.current.removeEventListener("touchend", handleDraggerTouchEnd)
+      if (dragger.current) {
+        dragger.current.removeEventListener(
+          "touchstart",
+          handleDraggerTouchStart
+        )
+        dragger.current.removeEventListener(
+          "touchmove",
+          handleTouchMoveThrottled
+        )
+        dragger.current.removeEventListener("touchend", handleDraggerTouchEnd)
+      }
     }
+
+    renderingElement.addEventListener("mouseover", handleMouseOver)
+    renderingElement.addEventListener("mouseup", handleMouseUp)
+    renderingElement.addEventListener("mousemove", handleMouseMoveEvent)
+    if (dragger.current) {
+      dragger.current.addEventListener("touchstart", handleDraggerTouchStart)
+      dragger.current.addEventListener("touchmove", handleTouchMoveThrottled)
+      dragger.current.addEventListener("touchend", handleDraggerTouchEnd)
+    }
+
+    return cleanup
   }, [currentTheme, size.width, size.height])
 
   const parent = {
