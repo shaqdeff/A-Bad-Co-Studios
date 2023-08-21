@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
 // styled components
 import {
@@ -131,8 +131,24 @@ const Navigation = () => {
             animate={{ width: revealVideo.show ? 0 : "100%" }}
             className="reveal"
           ></motion.div>
+
           <div className="video">
-            <video src={revealVideo.video} autoPlay muted loop></video>
+            <AnimatePresence initial={false} mode="wait">
+              <motion.video
+                key={revealVideo.key}
+                src={revealVideo.video}
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeInOut",
+                }}
+                autoPlay
+                muted
+                loop
+              ></motion.video>
+            </AnimatePresence>
           </div>
         </NavVideos>
       </Container>
