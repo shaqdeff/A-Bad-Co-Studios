@@ -146,6 +146,10 @@ export const Cursor = styled.div`
     mix-blend-mode: difference;
   }
 
+  &.nav-open {
+    background: ${props => props.theme.text};
+  }
+
   /* media queries */
   @media (max-width: 767px) {
     display: none;
