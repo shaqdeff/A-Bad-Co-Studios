@@ -35,13 +35,42 @@ export const CloseNav = styled.div`
     padding: 20px;
     background: none;
     outline: none;
+    position: relative;
+    bottom: 5px;
 
-    span {
-      width: 36px;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 34px;
       height: 8px;
-      display: block;
       background: ${props => props.theme.background};
-      margin: 8px;
+      transition: transform 0.3s;
+    }
+
+    &::before {
+      transform: rotate(45deg) translate(0, 0);
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+      border-radius: 2px;
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(0, 0);
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+      border-radius: 2px;
+    }
+
+    /* media queries */
+    @media (max-width: 767px) {
+      &::before,
+      &::after {
+        width: 28px;
+        height: 5px;
+      }
     }
   }
 `
