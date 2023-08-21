@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-export const Nav = styled.div`
+export const Nav = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -130,13 +130,14 @@ export const NavVideos = styled.div`
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    left: -10px;
   }
 
   .video {
     background: #0a0a0a;
     position: absolute;
     height: 100%;
+    width: 100%;
     margin: 0;
     z-index: -1;
 
