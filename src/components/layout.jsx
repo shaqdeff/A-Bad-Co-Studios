@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
   }
 
   const lightTheme = {
-    background: "#e0e0e0",
+    background: "#fbf7da",
     text: "#1f1f1f",
     red: "#a30000",
     green: "#496f56",

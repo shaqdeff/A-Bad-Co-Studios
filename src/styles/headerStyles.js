@@ -139,7 +139,7 @@ export const ToggleSwitch = styled.div`
   }
   .toggle-switch input[type="checkbox"]:checked + .switch::before {
     transform: translateY(15px);
-    background-color: #ebebeb;
+    background-color: #fbf7da;
   }
   .toggle-switch input[type="checkbox"]:checked + .switch {
     background-color: #0a0a0a;
