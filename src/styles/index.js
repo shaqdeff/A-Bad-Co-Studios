@@ -1,6 +1,7 @@
 import { Container, Cursor, Dragger, Flex } from "./globalStyles"
 import { HeaderNav, Logo, Menu, ToggleSwitch } from "./headerStyles"
 import { Banner, Video, Canvas, BannerTitle, Headline } from "./homeStyles"
+
 import {
   Nav,
   NavHeader,
@@ -9,6 +10,16 @@ import {
   NavFooter,
   NavVideos,
 } from "./navigationStyles"
+
+import {
+  Content,
+  GridContent,
+  ListContent,
+  GridElements,
+  GridElement,
+  ThumbnailWrapper,
+  GridItemMedia,
+} from "./contentStyles"
 
 export {
   Container,
@@ -30,4 +41,11 @@ export {
   NavList,
   NavFooter,
   NavVideos,
+  Content,
+  GridContent,
+  ListContent,
+  GridElements,
+  GridElement,
+  ThumbnailWrapper,
+  GridItemMedia,
 }
