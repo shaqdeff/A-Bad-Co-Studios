@@ -117,7 +117,7 @@ export const ToggleSwitch = styled.div`
   .toggle-switch .switch {
     position: absolute;
     cursor: pointer;
-    background-color: #ebebeb;
+    background-color: #fdfbed;
     border-radius: 25px;
     top: 0;
     right: 0;
