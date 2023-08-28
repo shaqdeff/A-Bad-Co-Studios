@@ -19,6 +19,7 @@
     "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
+    "path": "^0.12.7",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-canvas": "^1.2.1",
