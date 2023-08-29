@@ -16,7 +16,7 @@ import {
   GridContent,
   ListContent,
   GridElements,
-  GridElement,
+  Element,
   ThumbnailWrapper,
   GridItemMedia,
 } from "./galleryStyles"
@@ -45,7 +45,7 @@ export {
   GridContent,
   ListContent,
   GridElements,
-  GridElement,
+  Element,
   ThumbnailWrapper,
   GridItemMedia,
 }
