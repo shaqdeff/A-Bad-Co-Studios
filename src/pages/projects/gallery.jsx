@@ -4,6 +4,12 @@ import Loadable from "react-loadable"
 // components
 import { GalleryLayout, GalleryHeader } from "../../components"
 
+// context
+import {
+  useGlobalStateContext,
+  useGlobalDispatchContext,
+} from "../../context/globalContext"
+
 function LoadingComponent(props) {
   return <div />
 }
@@ -15,11 +21,24 @@ const GalleryLazy = Loadable({
 })
 
 const Gallery = () => {
+  const { currentTheme, cursorStyles } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
+
   const [gridVisible, setGridVisible] = useState(true)
+
+  const onCursor = cursorType => {
+    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
+    dispatch({ type: "CURSOR_TYPE", cursorType: cursorType })
+  }
+
+  const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
     <GalleryLayout>
       <GalleryHeader
+        onCursor={onCursor}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
         gridVisible={gridVisible}
         setGridVisible={setGridVisible}
       />
