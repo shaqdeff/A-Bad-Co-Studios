@@ -13,7 +13,11 @@ const ToggleView = ({ view, toggleView }: ToggleProps) => {
   return (
     <ViewSwitch>
       <button onClick={() => toggleView(!view)}>
-        {view ? <Columns /> : <Grid />}
+        {view ? (
+          <Columns className="toggle-icon" />
+        ) : (
+          <Grid className="toggle-icon" />
+        )}
       </button>
     </ViewSwitch>
   )
