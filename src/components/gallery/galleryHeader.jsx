@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 
 // components
 import Switch from "../switch"
+import ToggleView from "./toggleView"
 
 // styled components
 import { Container, Flex, Logo, Menu, HeaderNav } from "../../styles"
@@ -105,6 +106,11 @@ const GalleryHeader = ({ onCursor, setToggleMenu, toggleMenu }) => {
 
         <div className="switch-box">
           <Switch />
+
+          <ToggleView
+            view={gridVisible}
+            toggleView={value => setGridVisible(value)}
+          />
         </div>
       </Container>
     </HeaderNav>
