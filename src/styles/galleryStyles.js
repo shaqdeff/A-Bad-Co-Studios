@@ -59,4 +59,47 @@ export const GridItemMedia = styled.div`
     object-fit: contain;
   }
 `
-export const ViewSwitch = styled.div``
+export const ViewSwitch = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  margin-left: -0.2rem;
+  z-index: 25;
+
+  button {
+    padding: 2px;
+    background: none;
+    box-shadow: none;
+
+    display: flex;
+    border: none;
+    border-radius: 5px;
+
+    .toggle-icon {
+      color: ${props => props.theme.text};
+    }
+
+    /* media queries */
+    @media (max-width: 767px) {
+      padding: 0;
+      border: none;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      border: 2px solid ${props => props.theme.text};
+    }
+  }
+
+  /* media queries */
+  @media (max-width: 767px) {
+    margin-bottom: -5.5rem;
+    margin-left: -2rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: -3rem;
+    margin-left: -4.5rem;
+    background: ${props => props.theme.background};
+    border-radius: 5px;
+  }
+`
