@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from "gatsby"
 // components
 import GalleryHeader from "./galleryHeader"
 import CustomCursor from "../customCursor"
-import Navigation from "../navigation"
 
 // styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -61,13 +60,8 @@ const GalleryLayout = ({ children }) => {
     green: "#496f56",
   }
 
-  const { currentTheme, cursorStyles } = useGlobalStateContext()
+  const { currentTheme } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
-
-  const onCursor = cursorType => {
-    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
-    dispatch({ type: "CURSOR_TYPE", cursorType: cursorType })
-  }
 
   const [toggleMenu, setToggleMenu] = useState(false)
 
@@ -75,16 +69,6 @@ const GalleryLayout = ({ children }) => {
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <CustomCursor toggleMenu={toggleMenu} />
-      <GalleryHeader
-        onCursor={onCursor}
-        toggleMenu={toggleMenu}
-        setToggleMenu={setToggleMenu}
-      />
-      <Navigation
-        toggleMenu={toggleMenu}
-        setToggleMenu={setToggleMenu}
-        onCursor={onCursor}
-      />
       <main>{children}</main>
     </ThemeProvider>
   )
