@@ -59,3 +59,4 @@ export const GridItemMedia = styled.div`
     object-fit: contain;
   }
 `
+export const ViewSwitch = styled.div``

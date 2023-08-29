@@ -18,6 +18,7 @@ import {
   GridElements,
   ThumbnailWrapper,
   GridItemMedia,
+  ViewSwitch,
 } from "./galleryStyles"
 
 export {
@@ -46,4 +47,5 @@ export {
   GridElements,
   ThumbnailWrapper,
   GridItemMedia,
+  ViewSwitch,
 }
