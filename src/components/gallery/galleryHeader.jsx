@@ -15,7 +15,13 @@ import { lens, record } from "../../images"
 // context
 import { useGlobalStateContext, useGlobalDispatchContext } from "../../context"
 
-const GalleryHeader = ({ onCursor, setToggleMenu, toggleMenu }) => {
+const GalleryHeader = ({
+  onCursor,
+  setToggleMenu,
+  toggleMenu,
+  gridVisible,
+  setGridVisible,
+}) => {
   const dispatch = useGlobalDispatchContext()
   const { currentTheme } = useGlobalStateContext()
 
