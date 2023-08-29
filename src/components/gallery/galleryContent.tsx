@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { images } from "../../data"
+import React from "react"
+import images from "../../data/images.js"
 
 // components
 import ImageLink from "./imageLink"
