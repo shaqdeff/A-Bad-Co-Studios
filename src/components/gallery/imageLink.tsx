@@ -1,6 +1,12 @@
 import React from "react"
+import { motion } from "framer-motion"
 import { DataType } from "./galleryContent"
+
+// styled components
 import { GridItemMedia } from "../../styles"
+
+// utils
+import { defaultTransition } from "../../utils"
 
 type ImageProps = {
   element: DataType
@@ -10,7 +16,11 @@ type ImageProps = {
 const ImageLink = ({ index, element }: ImageProps) => {
   return (
     <GridItemMedia>
-      <img src={element.cover} />
+      <motion.img
+        src={element.cover}
+        layoutId={`container-${index}`}
+        transition={defaultTransition}
+      />
     </GridItemMedia>
   )
 }
