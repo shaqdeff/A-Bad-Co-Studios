@@ -22,10 +22,10 @@ export const images = [
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1665340825807-431992a97de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Tan Teng Niah",
-    slug: "tan-teng-niah",
-    color: "#0092cc",
+      "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Vegatables",
+    slug: "vegetables",
+    color: "#004643",
   },
   {
     cover:
@@ -43,10 +43,10 @@ export const images = [
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Vegatables",
-    slug: "vegetables",
-    color: "#004643",
+      "https://images.unsplash.com/photo-1613390250147-171878866f04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
+    title: "Rio De Janeiro",
+    slug: "rio-de-janeiro",
+    color: "#d55948",
   },
   {
     cover:
@@ -57,17 +57,17 @@ export const images = [
   },
   {
     cover:
+      "https://images.unsplash.com/photo-1665340825807-431992a97de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Tan Teng Niah",
+    slug: "tan-teng-niah",
+    color: "#0092cc",
+  },
+  {
+    cover:
       "https://images.unsplash.com/photo-1596446391793-b0f08023114e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Taipei",
     slug: "taipei",
     color: "#a63526",
-  },
-  {
-    cover:
-      "https://images.unsplash.com/photo-1613390250147-171878866f04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
-    title: "Rio De Janeiro",
-    slug: "rio-de-janeiro",
-    color: "#d55948",
   },
   {
     cover:
