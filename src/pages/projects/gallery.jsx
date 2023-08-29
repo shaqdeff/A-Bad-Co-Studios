@@ -1,6 +1,9 @@
 import React from "react"
 import Loadable from "react-loadable"
 
+// components
+import { Layout } from "../../components"
+
 function LoadingComponent(props) {
   return <div />
 }
@@ -13,9 +16,9 @@ const GalleryLazy = Loadable({
 
 const Gallery = () => {
   return (
-    <>
+    <Layout>
       <GalleryLazy />
-    </>
+    </Layout>
   )
 }
 
