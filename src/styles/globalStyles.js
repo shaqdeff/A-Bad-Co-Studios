@@ -136,15 +136,13 @@ export const Cursor = styled.div`
   }
 
   &.ring {
-    width: 35px;
-    height: 35px;
     border: 5px solid ${props => props.theme.green} !important;
   }
 
   &.hovered {
     background: transparent !important;
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     border: 5px solid ${props => props.theme.red};
   }
 
