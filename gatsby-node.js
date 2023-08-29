@@ -1,8 +1,3 @@
-const path = require("path")
-const pageData = require("./src/data/images.json")
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions
   // createPage({
