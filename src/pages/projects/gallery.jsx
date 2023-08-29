@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Loadable from "react-loadable"
 
 // components
-import { GalleryLayout, GalleryHeader } from "../../components"
+import { GalleryLayout, GalleryHeader, Navigation } from "../../components"
 
 // context
 import {
@@ -41,6 +41,11 @@ const Gallery = () => {
         setToggleMenu={setToggleMenu}
         gridVisible={gridVisible}
         setGridVisible={setGridVisible}
+      />
+      <Navigation
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+        onCursor={onCursor}
       />
       <GalleryLazy gridVisible={gridVisible} />
     </GalleryLayout>
