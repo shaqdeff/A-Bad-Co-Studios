@@ -20,8 +20,7 @@ export type DataType = {
   color: string
 }
 
-const GalleryContent = () => {
-  const [gridVisible, setGridVisible] = useState(true)
+const GalleryContent = ({ gridVisible }) => {
   const mapData: DataType[] = Array.from(images)
 
   return (
