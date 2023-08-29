@@ -134,6 +134,13 @@ export const Cursor = styled.div`
   &.pointer {
     border: 5px solid ${props => props.theme.text} !important;
   }
+
+  &.ring {
+    width: 35px;
+    height: 35px;
+    border: 5px solid ${props => props.theme.green} !important;
+  }
+
   &.hovered {
     background: transparent !important;
     width: 55px;

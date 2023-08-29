@@ -12,9 +12,6 @@ import { Container, Flex, Logo, Menu, HeaderNav } from "../../styles"
 // images
 import { lens, record } from "../../images"
 
-// context
-import { useGlobalStateContext, useGlobalDispatchContext } from "../../context"
-
 const GalleryHeader = ({
   onCursor,
   setToggleMenu,
@@ -22,17 +19,7 @@ const GalleryHeader = ({
   gridVisible,
   setGridVisible,
 }) => {
-  const dispatch = useGlobalDispatchContext()
-  const { currentTheme } = useGlobalStateContext()
-
-  const toggleTheme = () => {
-    if (currentTheme === "light") {
-      dispatch({ type: "TOGGLE_THEME", theme: "dark" })
-    } else {
-      dispatch({ type: "TOGGLE_THEME", theme: "light" })
-    }
-  }
-
+  // animation
   const blinkingAnimation = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -61,12 +48,7 @@ const GalleryHeader = ({
                 onMouseLeave={onCursor}
               >
                 <Link to="/">
-                  <img
-                    src={lens}
-                    alt="lens"
-                    className="lens"
-                    // onClick={toggleTheme}
-                  />
+                  <img src={lens} alt="lens" className="lens" />
                 </Link>
               </span>
             </Logo>
@@ -110,12 +92,18 @@ const GalleryHeader = ({
           </Menu>
         </Flex>
 
-        <div className="switch-box">
+        <div
+          className="switch-box"
+          onMouseEnter={() => onCursor("ring")}
+          onMouseLeave={onCursor}
+        >
           <Switch />
 
           <ToggleView
             view={gridVisible}
             toggleView={value => setGridVisible(value)}
+            onMouseEnter={() => onCursor("pointer")}
+            onMouseLeave={onCursor}
           />
         </div>
       </Container>
