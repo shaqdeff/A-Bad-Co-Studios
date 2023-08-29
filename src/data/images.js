@@ -1,41 +1,6 @@
 export const images = [
   {
     cover:
-      "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Shrimps",
-    slug: "shrimps",
-    color: "#cca700",
-  },
-  {
-    cover:
-      "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Vegatables",
-    slug: "vegetables",
-    color: "#004643",
-  },
-  {
-    cover:
-      "https://images.unsplash.com/photo-1558594144-7eeeaa34d22b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
-    title: "Capitoline",
-    slug: "capitoline",
-    color: "#f6c8a2",
-  },
-  {
-    cover:
-      "https://images.unsplash.com/photo-1596446391793-b0f08023114e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Taipei",
-    slug: "taipei",
-    color: "#a63526",
-  },
-  {
-    cover:
-      "https://images.unsplash.com/photo-1613390250147-171878866f04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
-    title: "Rio De Janeiro",
-    slug: "rio-de-janeiro",
-    color: "#d55948",
-  },
-  {
-    cover:
       "https://images.unsplash.com/photo-1542897643-cfccd88c7127?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1227&q=80",
     title: "Penglipuran",
     slug: "penglipuran",
@@ -68,6 +33,41 @@ export const images = [
     title: "Carnivalous",
     slug: "carnivalous",
     color: "#973594",
+  },
+  {
+    cover:
+      "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Shrimps",
+    slug: "shrimps",
+    color: "#cca700",
+  },
+  {
+    cover:
+      "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Vegatables",
+    slug: "vegetables",
+    color: "#004643",
+  },
+  {
+    cover:
+      "https://images.unsplash.com/photo-1558594144-7eeeaa34d22b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
+    title: "Capitoline",
+    slug: "capitoline",
+    color: "#f6c8a2",
+  },
+  {
+    cover:
+      "https://images.unsplash.com/photo-1596446391793-b0f08023114e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Taipei",
+    slug: "taipei",
+    color: "#a63526",
+  },
+  {
+    cover:
+      "https://images.unsplash.com/photo-1613390250147-171878866f04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
+    title: "Rio De Janeiro",
+    slug: "rio-de-janeiro",
+    color: "#d55948",
   },
   {
     cover:

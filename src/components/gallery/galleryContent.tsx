@@ -10,7 +10,6 @@ import {
   GridContent,
   ListContent,
   GridElements,
-  Element,
   ThumbnailWrapper,
 } from "../../styles"
 
@@ -32,11 +31,11 @@ const GalleryContent = () => {
           <GridContent>
             <GridElements>
               {mapData.map((element, index) => (
-                <Element>
+                <div className="element">
                   <ThumbnailWrapper>
                     <ImageLink element={element} index={index} />
                   </ThumbnailWrapper>
-                </Element>
+                </div>
               ))}
             </GridElements>
           </GridContent>
@@ -45,9 +44,9 @@ const GalleryContent = () => {
         {!gridVisible && (
           <ListContent>
             {mapData.map((element, index) => (
-              <Element>
+              <div className="element">
                 <ImageLink element={element} index={index} />
-              </Element>
+              </div>
             ))}
           </ListContent>
         )}
