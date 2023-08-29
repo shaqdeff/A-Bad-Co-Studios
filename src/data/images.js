@@ -5,35 +5,35 @@ export const images = [
       "https://images.unsplash.com/photo-1527203561188-dae1bc1a417f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1015&q=80",
     title: "Goddess",
     slug: "goddess",
-    color: "#F5B841",
+    color: "#f5b841",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1530884698386-d42ad3199b1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Vintage Mars",
     slug: "vintage-mars",
-    color: "#60492C",
+    color: "#60492c",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1542513217-0b0eedf7005d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
     title: "Melanin Queen",
     slug: "melanin-queen",
-    color: "#463F1A",
+    color: "#463f1a",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1535530705774-695729778c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Tru Identity",
     slug: "tru-identity",
-    color: "#D8AD97",
+    color: "#d8ad97",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1573162201267-83bddd2a5f0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Iconic",
     slug: "iconic",
-    color: "#F0F4F9",
+    color: "#f0f4f9",
   },
 
   // culture
@@ -42,14 +42,14 @@ export const images = [
       "https://images.unsplash.com/photo-1515658323406-25d61c141a6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1009&q=80",
     title: "Nomadic Bliss",
     slug: "nomadic-bliss",
-    color: "#CB793A",
+    color: "#cb793a",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1603486037214-4fec4016a9bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1227&q=80",
     title: "The Hmong Girl",
     slug: "the-hmong-girl",
-    color: "#527A5F",
+    color: "#527a5f",
   },
   {
     cover:
@@ -63,14 +63,14 @@ export const images = [
       "https://images.unsplash.com/photo-1542897643-cfccd88c7127?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1227&q=80",
     title: "Penglipuran",
     slug: "penglipuran",
-    color: "#EDEDE9",
+    color: "#edede9",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1593489062665-9f26fa627d73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Mehendi",
     slug: "mehendi",
-    color: "#A22C29",
+    color: "#a22c29",
   },
 
   // architecture
@@ -79,35 +79,35 @@ export const images = [
       "https://images.unsplash.com/photo-1558594144-7eeeaa34d22b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
     title: "Capitoline",
     slug: "capitoline",
-    color: "#F6C8A2",
+    color: "#f6c8a2",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1665340825807-431992a97de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Tan Teng Niah",
     slug: "tan-teng-niah",
-    color: "#0092CC",
+    color: "#0092cc",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1596446391793-b0f08023114e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Taipei",
     slug: "taipei",
-    color: "#A63526",
+    color: "#a63526",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1564898148101-82f74d4df7f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
     title: "Hut",
     slug: "hut",
-    color: "#3A6669",
+    color: "#3a6669",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1534943441045-1009d7cb0bb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1016&q=80",
     title: "Cartagena",
     slug: "cartagena",
-    color: "#E0B700",
+    color: "#e0b700",
   },
 
   // food
@@ -144,7 +144,7 @@ export const images = [
       "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Shrimps",
     slug: "shrimps",
-    color: "#CCA700",
+    color: "#cca700",
   },
 
   // cities
@@ -153,35 +153,35 @@ export const images = [
       "https://images.unsplash.com/photo-1554797589-7241bb691973?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
     title: "Tokyo",
     slug: "tokyo",
-    color: "#DF9916",
+    color: "#df9916",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1611144727915-ef30a08aaeb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=986&q=80",
     title: "Nairobi",
     slug: "nairobi",
-    color: "#FAE8C7",
+    color: "#fae8C7",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1613390250147-171878866f04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
     title: "Rio De Janeiro",
     slug: "rio-de-janeiro",
-    color: "#D55948",
+    color: "#d55948",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1524242109383-e349707a106b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "New York",
     slug: "new-york",
-    color: "#92BFDD",
+    color: "#92bfdd",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
     title: "Mumbai",
     slug: "mumbai",
-    color: "#2C658C",
+    color: "#2c658c",
   },
   // {
   //   cover: "",
