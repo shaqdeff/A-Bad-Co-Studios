@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import Loadable from "react-loadable"
 
 // components
-import { GalleryLayout } from "../../components"
+import { GalleryLayout, GalleryHeader } from "../../components"
 
 function LoadingComponent(props) {
   return <div />
@@ -15,9 +15,15 @@ const GalleryLazy = Loadable({
 })
 
 const Gallery = () => {
+  const [gridVisible, setGridVisible] = useState(true)
+
   return (
     <GalleryLayout>
-      <GalleryLazy />
+      <GalleryHeader
+        gridVisible={gridVisible}
+        setGridVisible={setGridVisible}
+      />
+      <GalleryLazy gridVisible={gridVisible} />
     </GalleryLayout>
   )
 }
