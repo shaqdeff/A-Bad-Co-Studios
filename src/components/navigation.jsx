@@ -61,25 +61,7 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
               <NavList>
                 <ul>
                   {navRoutes.map(route => (
-                    <motion.li
-                      key={route.id}
-                      onHoverStart={() =>
-                        setRevealVideo({
-                          show: true,
-                          video: route.video,
-                          key: route.id,
-                        })
-                      }
-                      onHoverEnd={() =>
-                        setRevealVideo({
-                          show: false,
-                          video: route.video,
-                          key: route.id,
-                        })
-                      }
-                      onMouseEnter={() => onCursor("pointer")}
-                      onMouseLeave={onCursor}
-                    >
+                    <motion.li key={route.id}>
                       <Link to={`/projects${route.path}`}>
                         <motion.div
                           initial={{ x: -108 }}
@@ -91,6 +73,22 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                             },
                           }}
                           className="link"
+                          onHoverStart={() =>
+                            setRevealVideo({
+                              show: true,
+                              video: route.video,
+                              key: route.id,
+                            })
+                          }
+                          onHoverEnd={() =>
+                            setRevealVideo({
+                              show: false,
+                              video: route.video,
+                              key: route.id,
+                            })
+                          }
+                          onMouseEnter={() => onCursor("pointer")}
+                          onMouseLeave={onCursor}
                         >
                           <span className="arrow">
                             <svg
@@ -122,6 +120,8 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                           },
                         }}
                         className="link"
+                        onMouseEnter={() => onCursor("pointer")}
+                        onMouseLeave={onCursor}
                       >
                         <span className="arrow">
                           <svg
