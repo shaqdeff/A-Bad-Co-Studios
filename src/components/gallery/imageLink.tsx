@@ -1,5 +1,8 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { navigate } from "gatsby"
+
+// props
 import { DataType } from "./galleryContent"
 
 // styled components
@@ -14,9 +17,14 @@ type ImageProps = {
 }
 
 const ImageLink = ({ index, element }: ImageProps) => {
+  const navigateTo = () => {
+    navigate(element.slug)
+  }
+
   return (
     <GridItemMedia>
       <motion.img
+        onClick={navigateTo}
         src={element.cover}
         layoutId={`container-${index}`}
         transition={defaultTransition}
