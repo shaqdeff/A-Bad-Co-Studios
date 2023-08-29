@@ -19,7 +19,7 @@ import {
   GridElement,
   ThumbnailWrapper,
   GridItemMedia,
-} from "./contentStyles"
+} from "./galleryStyles"
 
 export {
   Container,
