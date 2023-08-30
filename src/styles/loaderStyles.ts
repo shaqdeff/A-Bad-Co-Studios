@@ -16,9 +16,7 @@ export const FullLoader = styled(motion.div)`
   font-weight: 500;
   justify-content: center;
   pointer-events: none;
-`
 
-export const LoaderTitle = styled(motion.h1)`
   .logo-container {
     display: flex;
     align-items: center;
@@ -102,3 +100,5 @@ export const LoaderTitle = styled(motion.h1)`
     }
   }
 `
+
+export const LoaderTitle = styled(motion.h1)``
