@@ -25,7 +25,9 @@ const Gallery = () => {
   const dispatch = useGlobalDispatchContext()
 
   const savedGridVisible = JSON.parse(localStorage.getItem("gridVisible"))
-  const [gridVisible, setGridVisible] = useState(savedGridVisible || false)
+  const [gridVisible, setGridVisible] = useState(
+    savedGridVisible !== null ? savedGridVisible : true
+  )
 
   useEffect(() => {
     localStorage.setItem("gridVisible", JSON.stringify(gridVisible))
