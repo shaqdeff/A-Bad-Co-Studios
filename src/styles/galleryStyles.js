@@ -49,7 +49,7 @@ export const ListContent = styled.div`
     width: 65vmin;
     height: 65vmin;
     margin: 0 5vw;
-    /* margin-top: 2rem;   */
+    margin-top: 3rem;
   }
 `
 

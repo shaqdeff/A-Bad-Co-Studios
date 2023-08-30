@@ -43,10 +43,7 @@ const GalleryHeader = ({
               onMouseLeave={onCursor}
             >
               <Link to="/">A BAD C</Link>
-              <span
-                onMouseEnter={() => onCursor("pointer")}
-                onMouseLeave={onCursor}
-              >
+              <span>
                 <Link to="/">
                   <img src={lens} alt="lens" className="lens" />
                 </Link>
