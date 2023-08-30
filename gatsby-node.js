@@ -10,9 +10,7 @@ exports.createPages = async ({ actions }) => {
     createPage({
       path: pagePath,
       component: path.resolve("./src/templates/imagePage.tsx"),
-      context: {
-        slug: data.slug,
-      },
+      context: data,
     })
   })
 }
