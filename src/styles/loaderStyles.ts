@@ -10,13 +10,95 @@ export const FullLoader = styled(motion.div)`
   background: ${props => props.theme.background};
   z-index: 100;
   color: ${props => props.theme.text};
-  font-size: 5rem;
-  text-transform: capitalize;
   display: flex;
   align-items: center;
+  font-size: 2rem;
   font-weight: 500;
   justify-content: center;
   pointer-events: none;
 `
 
-export const LoaderTitle = styled(motion.h1)``
+export const LoaderTitle = styled(motion.h1)`
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: 10px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lens {
+    height: 3.2rem;
+    width: 3.2rem;
+    margin: 0 2px;
+    border-radius: 100%;
+    display: inline-block;
+    position: relative;
+    bottom: -2px;
+  }
+
+  .bottom-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    bottom: 25px;
+    left: -2px;
+  }
+
+  .studios {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 10px;
+    color: ${props => props.theme.text};
+  }
+
+  .record {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 3px;
+    border-radius: 100%;
+    display: inline-block;
+    position: relative;
+    bottom: 13px;
+    right: 5px;
+  }
+
+  /* media queries */
+  @media (max-width: 767px) {
+    font-size: 1rem;
+
+    .lens {
+      height: 1.65rem;
+      width: 1.65rem;
+      margin: 0 1px;
+      bottom: -1px;
+    }
+
+    .bottom-logo {
+      bottom: 10px;
+      left: 8px;
+    }
+
+    .studios {
+      font-size: 12px;
+    }
+
+    .record {
+      height: 1.2rem;
+      width: 1.2rem;
+      bottom: 2px;
+      margin-right: 3px;
+    }
+  }
+`
