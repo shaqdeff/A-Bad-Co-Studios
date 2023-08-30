@@ -21,6 +21,8 @@ import {
   ViewSwitch,
 } from "./galleryStyles"
 
+import { ImgPageContent, ImgWrapper } from "./imgPageStyles"
+
 export {
   Container,
   Cursor,
@@ -48,4 +50,6 @@ export {
   ThumbnailWrapper,
   GridItemMedia,
   ViewSwitch,
+  ImgPageContent,
+  ImgWrapper,
 }
