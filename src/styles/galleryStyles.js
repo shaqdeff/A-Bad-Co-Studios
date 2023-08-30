@@ -16,10 +16,10 @@ export const GridContent = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 2110px;
+  width: 2310px;
   height: 1600px;
-  top: calc(((1vh * 100) - 1600px) / 2);
-  left: calc((100vw - 2110px) / 2);
+  top: calc(((1vh * 100) - 1900px) / 2);
+  left: calc((100vw - 2150px) / 2);
 `
 
 export const GridElements = styled.div`
@@ -46,16 +46,17 @@ export const ListContent = styled.div`
   align-items: center;
 
   .element {
-    width: 70vmin;
-    height: 70vmin;
+    width: 65vmin;
+    height: 65vmin;
     margin: 0 5vw;
+    /* margin-top: 2rem;   */
   }
 `
 
 export const GridItemMedia = styled.div`
   img {
-    width: 100%;
-    height: 100%;
+    width: 65%;
+    height: 65%;
     object-fit: contain;
   }
 `
@@ -86,10 +87,9 @@ export const ViewSwitch = styled.div`
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
-      border: 2px solid ${props => props.theme.background};
-
+      border: 2px solid ${props => props.theme.text};
       .toggle-icon {
-        color: ${props => props.theme.background};
+        color: ${props => props.theme.text};
       }
     }
   }
@@ -101,9 +101,8 @@ export const ViewSwitch = styled.div`
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    margin-bottom: -7.4rem;
+    margin-bottom: -6rem;
     margin-left: -2.3rem;
-    background: ${props => props.theme.text};
     border-radius: 5px;
   }
 `
