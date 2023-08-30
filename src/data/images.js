@@ -99,7 +99,7 @@ module.exports = [
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1524242109383-e349707a106b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+      "https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2012&q=80",
     title: "New York",
     slug: "new-york",
     color: "#92bfdd",
