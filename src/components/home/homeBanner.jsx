@@ -110,7 +110,7 @@ const HomeBanner = ({ onCursor }) => {
 
     renderingCtx.clearRect(0, 0, size.width, size.height)
     renderingCtx.globalCompositeOperation = "source-over"
-    renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#fdfbed"
+    renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#f4f4f6"
     renderingCtx.fillRect(0, 0, size.width, size.height)
     drawing.current = false
 

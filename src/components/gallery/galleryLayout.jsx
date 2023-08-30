@@ -11,7 +11,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { normalize } from "styled-normalize"
 
 // context
-import { useGlobalDispatchContext, useGlobalStateContext } from "../../context"
+import { useGlobalStateContext } from "../../context"
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -48,20 +48,19 @@ const GalleryLayout = ({ children }) => {
 
   const darkTheme = {
     background: "#0a0a0a",
-    text: "#fdfbed",
+    text: "#f4f4f6",
     red: "#a30000",
     green: "#496f56",
   }
 
   const lightTheme = {
-    background: "#fdfbed",
+    background: "#f4f4f6",
     text: "#1f1f1f",
     red: "#a30000",
     green: "#496f56",
   }
 
   const { currentTheme } = useGlobalStateContext()
-
   const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
