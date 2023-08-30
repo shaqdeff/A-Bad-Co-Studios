@@ -23,8 +23,8 @@ export const GridContent = styled.div`
 
   /* media queries */
   @media (max-width: 767px) {
-    top: calc(((1vh * 100) - -9000px) / 2);
-    left: calc((100vw - 2155px) / 2);
+    top: calc(((1vh * 100) - 1850px) / 2);
+    left: calc((100vw - 2240px) / 2);
   }
 `
 
@@ -38,7 +38,7 @@ export const GridElements = styled.div`
 
   /* media queries */
   @media (max-width: 767px) {
-    grid-template-columns: repeat(1, 420px);
+    grid-template-columns: repeat(5, 200px);
 
     .element {
       padding: 24px 0;
@@ -99,10 +99,15 @@ export const ViewSwitch = styled.div`
     @media (max-width: 767px) {
       padding: 0;
       border: none;
+
+      .toggle-icon {
+        color: ${props => props.theme.text};
+      }
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
       border: 2px solid ${props => props.theme.background};
+
       .toggle-icon {
         color: ${props => props.theme.text};
       }
@@ -111,8 +116,10 @@ export const ViewSwitch = styled.div`
 
   /* media queries */
   @media (max-width: 767px) {
+    background: ${props => props.theme.background};
     margin-bottom: -5.5rem;
     margin-left: -2rem;
+    border-radius: 4px;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
