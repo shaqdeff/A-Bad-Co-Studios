@@ -24,7 +24,7 @@ const Gallery = () => {
   const { currentTheme, cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
 
-  const [gridVisible, setGridVisible] = useState(true)
+  const [gridVisible, setGridVisible] = useState(false)
 
   const onCursor = cursorType => {
     cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
