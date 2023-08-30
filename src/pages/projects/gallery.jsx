@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react"
 import Loadable from "react-loadable"
 
 // components
-import { GalleryLayout, GalleryHeader, Navigation } from "../../components"
+import {
+  CustomCursor,
+  GalleryLayout,
+  GalleryHeader,
+  Navigation,
+} from "../../components"
 
 // context
 import {
@@ -42,6 +47,7 @@ const Gallery = () => {
 
   return (
     <GalleryLayout>
+      <CustomCursor toggleMenu={toggleMenu} />
       <GalleryHeader
         onCursor={onCursor}
         toggleMenu={toggleMenu}

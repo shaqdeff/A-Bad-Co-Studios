@@ -61,14 +61,12 @@ const GalleryLayout = ({ children }) => {
   }
 
   const { currentTheme } = useGlobalStateContext()
-  const dispatch = useGlobalDispatchContext()
 
   const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <CustomCursor toggleMenu={toggleMenu} />
       <main>{children}</main>
     </ThemeProvider>
   )
