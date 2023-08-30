@@ -5,9 +5,12 @@ import { ArrowLeft } from "react-feather"
 // styled components
 import { BackButton } from "../../styles/"
 
-const GalleryButton = () => {
+const GalleryButton = ({ onCursor }) => {
   return (
-    <BackButton>
+    <BackButton
+      onMouseEnter={() => onCursor("hovered")}
+      onMouseLeave={onCursor}
+    >
       <Link to="/projects/gallery" replace className="button">
         <ArrowLeft />
       </Link>

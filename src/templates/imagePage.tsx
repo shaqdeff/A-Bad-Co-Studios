@@ -10,6 +10,9 @@ import { DataType } from "../components/gallery/galleryContent"
 // styled components
 import { ImgPageContent, ImgWrapper } from "../styles/"
 
+// context
+import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
+
 // utils
 import { defaultTransition } from "../utils"
 
@@ -29,9 +32,17 @@ const variants: Variants = {
 }
 
 const ImagePage = ({ pageContext }: ImageProps) => {
+  const { cursorStyles } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
+
+  const onCursor = cursorType => {
+    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
+    dispatch({ type: "CURSOR_TYPE", cursorType: cursorType })
+  }
+
   return (
     <Layout>
-      <GalleryButton />
+      <GalleryButton onCursor={onCursor} />
       <ImgPageContent>
         <ImgWrapper>
           <motion.img

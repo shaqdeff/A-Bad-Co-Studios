@@ -102,8 +102,6 @@ const GalleryHeader = ({
           <ToggleView
             view={gridVisible}
             toggleView={value => setGridVisible(value)}
-            onMouseEnter={() => onCursor("pointer")}
-            onMouseLeave={onCursor}
           />
         </div>
       </Container>

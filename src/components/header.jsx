@@ -18,14 +18,6 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
   const dispatch = useGlobalDispatchContext()
   const { currentTheme } = useGlobalStateContext()
 
-  const toggleTheme = () => {
-    if (currentTheme === "light") {
-      dispatch({ type: "TOGGLE_THEME", theme: "dark" })
-    } else {
-      dispatch({ type: "TOGGLE_THEME", theme: "light" })
-    }
-  }
-
   const blinkingAnimation = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -49,17 +41,9 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
               onMouseLeave={onCursor}
             >
               <Link to="/">A BAD C</Link>
-              <span
-                onMouseEnter={() => onCursor("pointer")}
-                onMouseLeave={onCursor}
-              >
+              <span>
                 <Link to="/">
-                  <img
-                    src={lens}
-                    alt="lens"
-                    className="lens"
-                    // onClick={toggleTheme}
-                  />
+                  <img src={lens} alt="lens" className="lens" />
                 </Link>
               </span>
             </Logo>
@@ -103,7 +87,11 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
           </Menu>
         </Flex>
 
-        <div className="switch-box">
+        <div
+          className="switch-box"
+          onMouseEnter={() => onCursor("ring")}
+          onMouseLeave={onCursor}
+        >
           <Switch />
         </div>
       </Container>
