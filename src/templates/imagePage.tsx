@@ -2,7 +2,7 @@ import React from "react"
 import { motion, Variants } from "framer-motion"
 
 // components
-import { Layout } from "../components"
+import { Layout, GalleryButton } from "../components"
 
 // props
 import { DataType } from "../components/gallery/galleryContent"
@@ -31,6 +31,7 @@ const variants: Variants = {
 const ImagePage = ({ pageContext }: ImageProps) => {
   return (
     <Layout>
+      <GalleryButton />
       <ImgPageContent>
         <ImgWrapper>
           <motion.img
