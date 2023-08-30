@@ -86,7 +86,11 @@ export const ViewSwitch = styled.div`
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
-      border: 2px solid ${props => props.theme.text};
+      border: 2px solid ${props => props.theme.background};
+
+      .toggle-icon {
+        color: ${props => props.theme.background};
+      }
     }
   }
 
@@ -97,9 +101,9 @@ export const ViewSwitch = styled.div`
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    margin-bottom: -6.6rem;
+    margin-bottom: -7.4rem;
     margin-left: -2.3rem;
-    background: ${props => props.theme.background};
+    background: ${props => props.theme.text};
     border-radius: 5px;
   }
 `
