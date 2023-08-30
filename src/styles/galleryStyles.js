@@ -97,8 +97,8 @@ export const ViewSwitch = styled.div`
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    margin-bottom: -3rem;
-    margin-left: -4.5rem;
+    margin-bottom: -6.5rem;
+    margin-left: -2.3rem;
     background: ${props => props.theme.background};
     border-radius: 5px;
   }
