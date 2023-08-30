@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Loadable from "react-loadable"
 
 // components
@@ -24,7 +24,12 @@ const Gallery = () => {
   const { currentTheme, cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
 
-  const [gridVisible, setGridVisible] = useState(false)
+  const savedGridVisible = JSON.parse(localStorage.getItem("gridVisible"))
+  const [gridVisible, setGridVisible] = useState(savedGridVisible || false)
+
+  useEffect(() => {
+    localStorage.setItem("gridVisible", JSON.stringify(gridVisible))
+  }, [gridVisible])
 
   const onCursor = cursorType => {
     cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
