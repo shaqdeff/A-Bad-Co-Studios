@@ -1,6 +1,8 @@
 import { Container, Cursor, Dragger, Flex } from "./globalStyles"
 import { HeaderNav, Logo, Menu, ToggleSwitch } from "./headerStyles"
 import { Banner, Video, Canvas, BannerTitle, Headline } from "./homeStyles"
+import { ImgPageContent, ImgWrapper, BackButton } from "./imgPageStyles"
+import { FullLoader, LoaderTitle } from "./loaderStyles"
 
 import {
   Nav,
@@ -20,8 +22,6 @@ import {
   GridItemMedia,
   ViewSwitch,
 } from "./galleryStyles"
-
-import { ImgPageContent, ImgWrapper, BackButton } from "./imgPageStyles"
 
 export {
   Container,
@@ -53,4 +53,6 @@ export {
   ImgPageContent,
   ImgWrapper,
   BackButton,
+  FullLoader,
+  LoaderTitle,
 }
