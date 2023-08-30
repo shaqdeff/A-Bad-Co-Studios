@@ -21,7 +21,7 @@ import {
   ViewSwitch,
 } from "./galleryStyles"
 
-import { ImgPageContent, ImgWrapper } from "./imgPageStyles"
+import { ImgPageContent, ImgWrapper, BackButton } from "./imgPageStyles"
 
 export {
   Container,
@@ -52,4 +52,5 @@ export {
   ViewSwitch,
   ImgPageContent,
   ImgWrapper,
+  BackButton,
 }
