@@ -28,15 +28,11 @@ const GalleryLazy = Loadable({
 const Gallery = props => {
   const { currentTheme, cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
+  const [gridVisible, setGridVisible] = useState(true)
 
-  const savedGridVisible = JSON.parse(localStorage.getItem("gridVisible"))
-  const [gridVisible, setGridVisible] = useState(
-    savedGridVisible !== null ? savedGridVisible : true
-  )
-
-  useEffect(() => {
-    localStorage.setItem("gridVisible", JSON.stringify(gridVisible))
-  }, [gridVisible])
+  const updateGridVisible = value => {
+    setGridVisible(value)
+  }
 
   const onCursor = cursorType => {
     cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
@@ -60,7 +56,11 @@ const Gallery = props => {
         setToggleMenu={setToggleMenu}
         onCursor={onCursor}
       />
-      <GalleryLazy onCursor={onCursor} gridVisible={gridVisible} />
+      <GalleryLazy
+        onCursor={onCursor}
+        gridVisible={gridVisible}
+        updateGridVisible={updateGridVisible}
+      />
     </GalleryLayout>
   )
 }
