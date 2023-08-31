@@ -6,9 +6,9 @@ export const Content = styled.div`
   width: 100vw;
   height: 100vh;
 
-  overflow-x: hidden;
+  overflow: hidden;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  /* content-visibility: auto; */
+  content-visibility: auto;
 `
 
 export const GridContent = styled.div`
@@ -33,7 +33,7 @@ export const GridElements = styled.div`
   grid-template-columns: repeat(5, 420px);
 
   .element {
-    padding: 32px 46px;
+    padding: 32px 40px;
   }
 
   /* media queries */

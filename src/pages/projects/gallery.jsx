@@ -25,7 +25,7 @@ const GalleryLazy = Loadable({
   loading: LoadingComponent,
 })
 
-const Gallery = () => {
+const Gallery = props => {
   const { currentTheme, cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
 
@@ -60,7 +60,7 @@ const Gallery = () => {
         setToggleMenu={setToggleMenu}
         onCursor={onCursor}
       />
-      <GalleryLazy gridVisible={gridVisible} />
+      <GalleryLazy onCursor={onCursor} gridVisible={gridVisible} />
     </GalleryLayout>
   )
 }
