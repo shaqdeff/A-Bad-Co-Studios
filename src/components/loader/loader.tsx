@@ -11,6 +11,7 @@ import { defaultTransition } from "../../utils"
 import { lens, record } from "../../images"
 
 type LoaderProps = {
+  title: string
   loaderControls: AnimationControls
 }
 
