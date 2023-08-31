@@ -1,3 +1,8 @@
-import { defaultDuration, defaultEase, defaultTransition } from "./transition"
+import {
+  defaultDuration,
+  defaultEase,
+  defaultTransition,
+  loaderTransition,
+} from "./transition"
 
-export { defaultDuration, defaultEase, defaultTransition }
+export { defaultDuration, defaultEase, defaultTransition, loaderTransition }

@@ -7,6 +7,7 @@ import GalleryHeader from "./gallery/galleryHeader"
 import GalleryLayout from "./gallery/galleryLayout"
 import Layout from "./layout"
 import Loader from "./loader/loader"
+import ImgLoader from "./loader/imgLoader"
 import Navigation from "./navigation"
 import SEO from "./seo"
 import Switch from "./switch"
@@ -21,6 +22,7 @@ export {
   GalleryLayout,
   Layout,
   Loader,
+  ImgLoader,
   Navigation,
   SEO,
   Switch,

@@ -77,7 +77,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
 
   return (
     <>
-      <Loader loaderControls={loaderControls} title="" />
+      <Loader loaderControls={loaderControls} />
       <Content>
         {gridVisible && (
           <GridContent

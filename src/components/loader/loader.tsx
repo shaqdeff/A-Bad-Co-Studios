@@ -2,7 +2,7 @@ import { motion, AnimationControls, Variants } from "framer-motion"
 import React from "react"
 
 // styled components
-import { FullLoader, LoaderTitle, Logo } from "../../styles"
+import { FullLoader, LoaderTitle } from "../../styles"
 
 // utils
 import { defaultTransition } from "../../utils"
@@ -11,7 +11,6 @@ import { defaultTransition } from "../../utils"
 import { lens, record } from "../../images"
 
 type LoaderProps = {
-  title: string
   loaderControls: AnimationControls
 }
 

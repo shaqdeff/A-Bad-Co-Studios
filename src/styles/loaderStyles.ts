@@ -14,6 +14,7 @@ export const FullLoader = styled(motion.div)`
   align-items: center;
   font-size: 2rem;
   font-weight: 500;
+  text-transform: capitalize;
   justify-content: center;
   pointer-events: none;
 

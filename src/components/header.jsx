@@ -29,7 +29,7 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
       initial={{ y: -72, opacity: 0 }}
       transition={{
         duration: 1,
-        delay: 0.7,
+        delay: 3,
         ease: [0.6, 0.05, 0.01, 0.9],
       }}
     >
