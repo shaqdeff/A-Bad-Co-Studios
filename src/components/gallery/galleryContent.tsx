@@ -1,5 +1,6 @@
-import React from "react"
-import images from "../../data/images.js"
+import React, { useEffect, useLayoutEffect, useState } from "react"
+import { motion, useAnimation, useMotionValue } from "framer-motion"
+import { useTheme } from "styled-components"
 
 // components
 import ImageLink from "./imageLink"
@@ -13,7 +14,12 @@ import {
   GridElements,
   ThumbnailWrapper,
 } from "../../styles"
-import { useAnimation } from "framer-motion"
+
+// data
+import images from "../../data/images.js"
+
+// utils
+import { defaultTransition } from "../../utils"
 
 export type DataType = {
   cover: string
@@ -22,23 +28,76 @@ export type DataType = {
   color: string
 }
 
-const GalleryContent = ({ gridVisible }) => {
+const gridUtils = [600, 400, 600, 800, 600]
+
+const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   const loaderControls = useAnimation()
+  const animation = useAnimation()
   const mapData: DataType[] = Array.from(images)
+
+  const theme = useTheme()
+  const bgColor = useMotionValue(theme.text)
+
+  useEffect(() => {
+    const sequence = async () => {
+      await animation.set(index => ({
+        y: gridUtils[index % 5],
+        scale: 1.05,
+      }))
+
+      await animation.start(() => ({
+        y: 0,
+        transition: defaultTransition,
+      }))
+
+      bgColor.set(theme.background)
+
+      await animation.start(() => ({
+        scale: 0.95,
+        transition: defaultTransition,
+      }))
+
+      updateGridVisible(false)
+    }
+
+    const timeoutId = setTimeout(() => {
+      loaderControls.start({
+        opacity: 0,
+        transition: { defaultTransition },
+      })
+
+      sequence()
+    }, 2500)
+
+    return () => {
+      clearTimeout(timeoutId)
+      loaderControls.stop()
+    }
+  }, [])
 
   return (
     <>
       <Loader loaderControls={loaderControls} />
       <Content>
         {gridVisible && (
-          <GridContent>
+          <GridContent
+            style={{
+              background: bgColor,
+              transition: "background 1.25s ease-in-out",
+            }}
+          >
             <GridElements>
               {mapData.map((element, index) => (
-                <div className="element">
+                <motion.div
+                  className="element"
+                  key={element.slug}
+                  animate={animation}
+                  custom={index}
+                >
                   <ThumbnailWrapper>
                     <ImageLink element={element} index={index} />
                   </ThumbnailWrapper>
-                </div>
+                </motion.div>
               ))}
             </GridElements>
           </GridContent>
