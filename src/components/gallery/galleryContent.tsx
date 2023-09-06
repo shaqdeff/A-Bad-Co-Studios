@@ -11,6 +11,8 @@ import {
   Content,
   GridContent,
   ListContent,
+  ContentDragger,
+  CircularShape,
   GridElements,
   ThumbnailWrapper,
 } from "../../styles"
@@ -154,13 +156,17 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
         )}
 
         {!gridVisible && (
-          <ListContent ref={listContentRef}>
-            {mapData.map((element, index) => (
-              <div className="element">
-                <ImageLink element={element} index={index} />
-              </div>
-            ))}
-          </ListContent>
+          <>
+            <ContentDragger />
+            <CircularShape />
+            <ListContent ref={listContentRef}>
+              {mapData.map((element, index) => (
+                <div className="element">
+                  <ImageLink element={element} index={index} />
+                </div>
+              ))}
+            </ListContent>
+          </>
         )}
       </Content>
     </>
