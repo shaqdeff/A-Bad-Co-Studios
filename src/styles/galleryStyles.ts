@@ -52,7 +52,7 @@ export const ThumbnailWrapper = styled.div`
   position: relative;
 `
 
-export const ListContent = styled.div`
+export const ListContent = styled(motion.div)`
   overflow: auto hidden;
   height: 100vh;
 
@@ -65,6 +65,14 @@ export const ListContent = styled.div`
     height: 65vmin;
     margin: 0 5vw;
     margin-top: 3rem;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
   }
 `
 

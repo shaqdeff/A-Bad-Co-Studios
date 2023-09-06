@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { motion, useAnimation, useMotionValue, useSpring } from "framer-motion"
 import { useTheme } from "styled-components"
 
@@ -39,10 +39,31 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   const bgColor = useMotionValue(theme.text)
 
   const gridRef = useRef<HTMLDivElement | null>(null)
+  const listContentRef = useRef<HTMLDivElement | null>(null)
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
+  // horizontal scroll
+  useEffect(() => {
+    const handleScroll = (event: WheelEvent) => {
+      if (!gridVisible && listContentRef.current) {
+        const scrollAmount = event.deltaY * 0.5
+        listContentRef.current.scrollLeft += scrollAmount
+        event.preventDefault()
+      }
+    }
+
+    if (!gridVisible) {
+      window.addEventListener("wheel", handleScroll)
+    }
+
+    return () => {
+      window.removeEventListener("wheel", handleScroll)
+    }
+  }, [gridVisible])
+
+  // animation sequence
   useEffect(() => {
     const sequence = async () => {
       await animation.set(index => ({
@@ -80,6 +101,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     }
   }, [])
 
+  // parallax effect
   const handleGridParallax = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -132,7 +154,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
         )}
 
         {!gridVisible && (
-          <ListContent>
+          <ListContent ref={listContentRef}>
             {mapData.map((element, index) => (
               <div className="element">
                 <ImageLink element={element} index={index} />
