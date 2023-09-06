@@ -8,7 +8,7 @@ export const Content = styled(motion.div)`
 
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  /* content-visibility: auto; */
+  transition: background-color 0.7s ease;
 `
 
 export const GridContent = styled.div`
@@ -31,9 +31,12 @@ export const GridContent = styled.div`
 export const GridElements = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(5, 420px);
+  align-items: center;
+  justify-items: center;
 
   .element {
     padding: 32px 40px;
+    will-change: transform;
   }
 
   /* media queries */
@@ -46,7 +49,7 @@ export const GridElements = styled(motion.div)`
   }
 `
 
-export const ThumbnailWrapper = styled.div`
+export const ThumbnailWrapper = styled(motion.div)`
   height: 100%;
   width: 100%;
   position: relative;
@@ -99,7 +102,6 @@ export const CircularShape = styled.div`
   position: absolute;
   width: 25px;
   height: 25px;
-  background: ${props => props.theme.background};
   border: 2px solid ${props => props.theme.text};
   border-radius: 50%;
   top: 5%;

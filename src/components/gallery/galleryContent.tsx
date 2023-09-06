@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { motion, useAnimation, useMotionValue, useSpring } from "framer-motion"
 import { useTheme } from "styled-components"
 
@@ -46,6 +46,13 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
 
   let scrollPercent = 0
   let newScrollPosition = 0
+
+  const theme = useTheme()
+  const [hoveredColor, setHoveredColor] = useState("")
+
+  const handleImageHover = color => {
+    setHoveredColor(color)
+  }
 
   // horizontal scroll
   useEffect(() => {
@@ -164,7 +171,12 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   return (
     <>
       <Loader loaderControls={loaderControls} />
-      <Content>
+      <Content
+        style={{
+          backgroundColor: hoveredColor ? hoveredColor : theme.background,
+          zIndex: 1,
+        }}
+      >
         {gridVisible && (
           <GridContent>
             <GridElements
@@ -183,8 +195,19 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
                   animate={animation}
                   custom={index}
                 >
-                  <ThumbnailWrapper>
-                    <ImageLink element={element} index={index} />
+                  <ThumbnailWrapper
+                    whileHover={{
+                      scale: [0.95, 1.05],
+                    }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    onMouseEnter={() => handleImageHover(element.color)}
+                    onMouseLeave={() => setHoveredColor("")}
+                  >
+                    <div>
+                      <ImageLink element={element} index={index} />
+                    </div>
                   </ThumbnailWrapper>
                 </motion.div>
               ))}
@@ -195,13 +218,17 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
         {!gridVisible && (
           <>
             <ContentDragger ref={draggerRef}>
-              <CircularShape />
+              <CircularShape
+                style={{
+                  background: hoveredColor ? hoveredColor : theme.background,
+                }}
+              />
             </ContentDragger>
             <ListContent ref={listContentRef}>
               {mapData.map((element, index) => (
-                <div className="element">
+                <motion.div className="element">
                   <ImageLink element={element} index={index} />
-                </div>
+                </motion.div>
               ))}
             </ListContent>
           </>
