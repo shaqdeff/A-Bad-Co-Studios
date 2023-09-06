@@ -80,24 +80,44 @@ export const ContentDragger = styled.div`
   background: ${props => props.theme.text};
   position: absolute;
   top: 0;
-  left: 13.4%;
+  left: 12%;
   width: 2px;
   height: 100%;
   z-index: -10;
+
+  /* media queries */
+  @media (max-width: 767px) {
+    left: 13.5%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    left: 13.5%;
+  }
 `
 
 export const CircularShape = styled.div`
   position: absolute;
-  width: 28px;
-  height: 28px;
+  width: 25px;
+  height: 25px;
   background: ${props => props.theme.background};
-  border: 1.5px solid ${props => props.theme.text};
+  border: 2px solid ${props => props.theme.text};
   border-radius: 50%;
-  top: 12%;
-  left: 13.5%;
+  top: 5%;
+  left: 12%;
   transform: translateY(-50%);
   transform: translateX(-50%);
   z-index: -10;
+
+  /* media queries */
+  @media (max-width: 767px) {
+    top: 12%;
+    left: 13.6%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    top: 12%;
+    left: 13.6%;
+  }
 `
 
 export const GridItemMedia = styled.div`
