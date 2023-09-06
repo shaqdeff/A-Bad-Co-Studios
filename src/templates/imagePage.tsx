@@ -62,7 +62,11 @@ const ImagePage = ({ pageContext }: ImageProps) => {
   return (
     <>
       <Layout>
-        <ImgLoader title={pageContext.title} loaderControls={control} />
+        <ImgLoader
+          title={pageContext.title}
+          color={pageContext.color}
+          loaderControls={control}
+        />
         <GalleryButton onCursor={onCursor} />
         <ImgPageContent>
           <ImgWrapper>

@@ -12,9 +12,9 @@ export const ImgWrapper = styled.div`
   justify-content: center;
 
   img {
-    width: 1200px;
+    width: 1300px;
     aspect-ratio: 16/9;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   /* media queries */

@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react"
 import { AnimationControls, Variants } from "framer-motion"
-import React from "react"
+import { useTheme } from "styled-components"
 
 // styled components
 import { FullLoader, LoaderTitle } from "../../styles"
@@ -9,6 +10,7 @@ import { defaultTransition } from "../../utils"
 
 type ImgLoaderProps = {
   title: string
+  color: string
   loaderControls: AnimationControls
 }
 
@@ -25,10 +27,22 @@ const variants: Variants = {
   },
 }
 
-const ImgLoader = ({ title, loaderControls }: ImgLoaderProps) => {
+const ImgLoader = ({ title, color, loaderControls }: ImgLoaderProps) => {
+  const theme = useTheme()
+  const [loaderColor, setLoaderColor] = useState("")
+
+  useEffect(() => {
+    setLoaderColor(color)
+  }, [color])
+
   return (
     <>
-      <FullLoader animate={loaderControls}>
+      <FullLoader
+        animate={loaderControls}
+        style={{
+          background: loaderColor ? loaderColor : theme.background,
+        }}
+      >
         <LoaderTitle
           variants={variants}
           initial={"initial"}
