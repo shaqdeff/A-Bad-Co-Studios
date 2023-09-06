@@ -1,18 +1,17 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: ${props => props.theme.background};
 
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   content-visibility: auto;
 `
 
-export const GridContent = styled(motion.div)`
+export const GridContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

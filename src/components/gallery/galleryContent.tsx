@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { motion, useAnimation, useMotionValue } from "framer-motion"
 import { useTheme } from "styled-components"
 
@@ -78,14 +78,9 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   return (
     <>
       <Loader loaderControls={loaderControls} />
-      <Content>
+      <Content theme={theme}>
         {gridVisible && (
-          <GridContent
-            style={{
-              background: bgColor,
-              transition: "background 1.25s ease-in-out",
-            }}
-          >
+          <GridContent>
             <GridElements>
               {mapData.map((element, index) => (
                 <motion.div
