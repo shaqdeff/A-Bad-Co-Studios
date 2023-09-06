@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { motion, useAnimation, useMotionValue, useSpring } from "framer-motion"
 import { useTheme } from "styled-components"
 
@@ -36,9 +36,6 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   const loaderControls = useAnimation()
   const animation = useAnimation()
   const mapData: DataType[] = Array.from(images)
-
-  const theme = useTheme()
-  const bgColor = useMotionValue(theme.text)
 
   const gridRef = useRef<HTMLDivElement | null>(null)
   const listContentRef = useRef<HTMLDivElement | null>(null)
@@ -120,8 +117,6 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
         transition: defaultTransition,
       }))
 
-      bgColor.set(theme.background)
-
       await animation.start(() => ({
         scale: 0.95,
         transition: defaultTransition,
@@ -169,7 +164,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   return (
     <>
       <Loader loaderControls={loaderControls} />
-      <Content theme={theme}>
+      <Content>
         {gridVisible && (
           <GridContent>
             <GridElements
