@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { motion, useAnimation, useMotionValue } from "framer-motion"
+import React, { useEffect, useRef } from "react"
+import { motion, useAnimation, useMotionValue, useSpring } from "framer-motion"
 import { useTheme } from "styled-components"
 
 // components
@@ -38,6 +38,11 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   const theme = useTheme()
   const bgColor = useMotionValue(theme.text)
 
+  const gridRef = useRef<HTMLDivElement | null>(null)
+
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
   useEffect(() => {
     const sequence = async () => {
       await animation.set(index => ({
@@ -75,13 +80,41 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     }
   }, [])
 
+  const handleGridParallax = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (gridRef.current) {
+      const speed = -10
+      const { width, height } = gridRef.current.getBoundingClientRect()
+      const offsetX = event.pageX - width * 0.5
+      const offsetY = event.pageY - height * 0.5
+
+      const newTransformX = (offsetX * speed) / 100
+      const newTransformY = (offsetY * speed) / 30
+
+      x.set(newTransformX)
+      y.set(newTransformY)
+    }
+  }
+
+  const xMotion = useSpring(x, { stiffness: 400, damping: 90 })
+  const yMotion = useSpring(y, { stiffness: 400, damping: 90 })
+
   return (
     <>
       <Loader loaderControls={loaderControls} />
       <Content theme={theme}>
         {gridVisible && (
           <GridContent>
-            <GridElements>
+            <GridElements
+              onMouseMove={handleGridParallax}
+              ref={gridRef}
+              transition={defaultTransition}
+              style={{
+                x: xMotion,
+                y: yMotion,
+              }}
+            >
               {mapData.map((element, index) => (
                 <motion.div
                   className="element"

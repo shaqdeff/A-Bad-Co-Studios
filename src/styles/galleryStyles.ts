@@ -8,7 +8,7 @@ export const Content = styled(motion.div)`
 
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  content-visibility: auto;
+  /* content-visibility: auto; */
 `
 
 export const GridContent = styled.div`
@@ -17,8 +17,8 @@ export const GridContent = styled.div`
   justify-content: center;
   position: absolute;
   width: 2310px;
-  height: 1600px;
-  top: calc(((1vh * 100) - 1950px) / 2);
+  height: 1450px;
+  top: calc(((1vh * 100) - 1900px) / 2);
   left: calc((100vw - 2200px) / 2);
 
   /* media queries */
@@ -28,7 +28,7 @@ export const GridContent = styled.div`
   }
 `
 
-export const GridElements = styled.div`
+export const GridElements = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(5, 420px);
 
