@@ -80,7 +80,7 @@ export const ContentDragger = styled.div`
   background: ${props => props.theme.text};
   position: absolute;
   top: 0;
-  left: 12%;
+  left: 11.95%;
   width: 2px;
   height: 100%;
   z-index: -10;
