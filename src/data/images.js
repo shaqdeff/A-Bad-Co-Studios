@@ -39,7 +39,7 @@ module.exports = [
       "https://images.unsplash.com/photo-1573162201267-83bddd2a5f0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Iconic",
     slug: "iconic",
-    color: "#f0f4f9",
+    color: "#986B4C",
   },
   {
     cover:
@@ -53,21 +53,21 @@ module.exports = [
       "https://images.unsplash.com/photo-1564898148101-82f74d4df7f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
     title: "Hut",
     slug: "hut",
-    color: "#3a6669",
+    color: "#496162",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1593489062665-9f26fa627d73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Mehendi",
     slug: "mehendi",
-    color: "#a22c29",
+    color: "#7C0623",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
     title: "Mumbai",
     slug: "mumbai",
-    color: "#2c658c",
+    color: "#7E9DBF",
   },
 
   {
@@ -75,70 +75,70 @@ module.exports = [
       "https://images.unsplash.com/photo-1534943441045-1009d7cb0bb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1016&q=80",
     title: "Cartagena",
     slug: "cartagena",
-    color: "#e0b700",
+    color: "#D9C187",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1515658323406-25d61c141a6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1009&q=80",
     title: "Nomadic Bliss",
     slug: "nomadic-bliss",
-    color: "#cb793a",
+    color: "#DCBBAB",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1530884698386-d42ad3199b1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Vintage Mars",
     slug: "vintage-mars",
-    color: "#60492c",
+    color: "#C18676",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1542513217-0b0eedf7005d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
     title: "Melanin Queen",
     slug: "melanin-queen",
-    color: "#463f1a",
+    color: "#D8CABE",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2012&q=80",
     title: "New York",
     slug: "new-york",
-    color: "#92bfdd",
+    color: "#3D9AA3",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1610648926872-37fe9b90a487?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80",
     title: "Carnivalous",
     slug: "carnivalous",
-    color: "#973594",
+    color: "#C199B7",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1611144727915-ef30a08aaeb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=986&q=80",
     title: "Nairobi",
     slug: "nairobi",
-    color: "#fae8C7",
+    color: "#D4CCBF",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1535530705774-695729778c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Tru Identity",
     slug: "tru-identity",
-    color: "#d8ad97",
+    color: "#797D92",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1554797589-7241bb691973?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
     title: "Tokyo",
     slug: "tokyo",
-    color: "#df9916",
+    color: "#A39079",
   },
   {
     cover:
       "https://images.unsplash.com/photo-1574164052277-b9ea797de8e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     title: "Dumplings",
     slug: "dumplings",
-    color: "#517690",
+    color: "#60878F",
   },
   {
     cover:
