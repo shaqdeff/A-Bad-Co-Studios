@@ -36,39 +36,40 @@ module.exports = [
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Shrimps",
-    slug: "shrimps",
-    color: "#cca700",
+      "https://images.unsplash.com/photo-1573162201267-83bddd2a5f0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Iconic",
+    slug: "iconic",
+    color: "#f0f4f9",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1613390250147-171878866f04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
-    title: "Rio De Janeiro",
-    slug: "rio-de-janeiro",
-    color: "#d55948",
+      "https://images.unsplash.com/photo-1527203561188-dae1bc1a417f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1015&q=80",
+    title: "Goddess",
+    slug: "goddess",
+    color: "#f5b841",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1558594144-7eeeaa34d22b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
-    title: "Capitoline",
-    slug: "capitoline",
-    color: "#f6c8a2",
+      "https://images.unsplash.com/photo-1564898148101-82f74d4df7f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
+    title: "Hut",
+    slug: "hut",
+    color: "#3a6669",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1665340825807-431992a97de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Tan Teng Niah",
-    slug: "tan-teng-niah",
-    color: "#0092cc",
+      "https://images.unsplash.com/photo-1593489062665-9f26fa627d73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Mehendi",
+    slug: "mehendi",
+    color: "#a22c29",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1596446391793-b0f08023114e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Taipei",
-    slug: "taipei",
-    color: "#a63526",
+      "https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
+    title: "Mumbai",
+    slug: "mumbai",
+    color: "#2c658c",
   },
+
   {
     cover:
       "https://images.unsplash.com/photo-1534943441045-1009d7cb0bb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1016&q=80",
@@ -141,37 +142,37 @@ module.exports = [
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1573162201267-83bddd2a5f0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Iconic",
-    slug: "iconic",
-    color: "#f0f4f9",
+      "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Shrimps",
+    slug: "shrimps",
+    color: "#cca700",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1593489062665-9f26fa627d73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-    title: "Mehendi",
-    slug: "mehendi",
-    color: "#a22c29",
+      "https://images.unsplash.com/photo-1613390250147-171878866f04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
+    title: "Rio De Janeiro",
+    slug: "rio-de-janeiro",
+    color: "#d55948",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1564898148101-82f74d4df7f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
-    title: "Hut",
-    slug: "hut",
-    color: "#3a6669",
+      "https://images.unsplash.com/photo-1558594144-7eeeaa34d22b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
+    title: "Capitoline",
+    slug: "capitoline",
+    color: "#f6c8a2",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1527203561188-dae1bc1a417f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1015&q=80",
-    title: "Goddess",
-    slug: "goddess",
-    color: "#f5b841",
+      "https://images.unsplash.com/photo-1665340825807-431992a97de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Tan Teng Niah",
+    slug: "tan-teng-niah",
+    color: "#0092cc",
   },
   {
     cover:
-      "https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
-    title: "Mumbai",
-    slug: "mumbai",
-    color: "#2c658c",
+      "https://images.unsplash.com/photo-1596446391793-b0f08023114e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    title: "Taipei",
+    slug: "taipei",
+    color: "#a63526",
   },
 ]
