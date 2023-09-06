@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useLayoutEffect } from "react"
 import { motion, useAnimation, useMotionValue, useSpring } from "framer-motion"
 import { useTheme } from "styled-components"
 
@@ -42,23 +42,65 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
 
   const gridRef = useRef<HTMLDivElement | null>(null)
   const listContentRef = useRef<HTMLDivElement | null>(null)
+  const draggerRef = useRef<HTMLDivElement | null>(null)
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
+  let scrollPercent = 0
+  let newScrollPosition = 0
+
   // horizontal scroll
   useEffect(() => {
-    const handleScroll = (event: WheelEvent) => {
-      if (!gridVisible && listContentRef.current) {
+    const listContent = listContentRef.current
+    const dragger = draggerRef.current
+
+    const handleScroll = event => {
+      if (!gridVisible && listContent) {
+        const listWidth = listContent.scrollWidth
+        const draggerWidth = dragger ? dragger.offsetWidth : 0
+        const maxScroll = listWidth - draggerWidth
         const scrollAmount = event.deltaY * 0.5
-        listContentRef.current.scrollLeft += scrollAmount
+
+        listContent.scrollLeft += scrollAmount
+        newScrollPosition = listContent.scrollLeft
+
+        const minScrollPosition = (2 * listWidth) / 100
+        const maxScrollPosition = maxScroll
+
+        if (newScrollPosition < minScrollPosition) {
+          newScrollPosition = minScrollPosition
+        } else if (newScrollPosition > maxScrollPosition) {
+          newScrollPosition = maxScrollPosition
+        }
+
+        scrollPercent = (newScrollPosition / maxScroll) * 100
+
+        if (dragger) {
+          dragger.style.left = `${scrollPercent}%`
+        }
+
         event.preventDefault()
       }
     }
 
-    if (!gridVisible) {
-      window.addEventListener("wheel", handleScroll)
+    const initializeScrollPosition = () => {
+      if (listContent && dragger) {
+        const listWidth = listContent.scrollWidth
+
+        const initialScrollPercent = Math.max(45, 0)
+        const initialScrollPosition = (initialScrollPercent * listWidth) / 100
+
+        listContent.scrollLeft = initialScrollPosition
+
+        dragger.style.left = `${initialScrollPercent}%`
+        scrollPercent = initialScrollPercent
+      }
     }
+
+    initializeScrollPosition()
+
+    window.addEventListener("wheel", handleScroll)
 
     return () => {
       window.removeEventListener("wheel", handleScroll)
@@ -157,8 +199,9 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
 
         {!gridVisible && (
           <>
-            <ContentDragger />
-            <CircularShape />
+            <ContentDragger ref={draggerRef}>
+              <CircularShape />
+            </ContentDragger>
             <ListContent ref={listContentRef}>
               {mapData.map((element, index) => (
                 <div className="element">

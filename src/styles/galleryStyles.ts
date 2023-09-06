@@ -76,7 +76,7 @@ export const ListContent = styled(motion.div)`
   }
 `
 
-export const ContentDragger = styled.div`
+export const ContentDragger = styled(motion.div)`
   background: ${props => props.theme.text};
   position: absolute;
   top: 0;
