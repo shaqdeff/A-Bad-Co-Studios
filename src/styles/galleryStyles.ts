@@ -97,6 +97,7 @@ export const CircularShape = styled.div`
   left: 13.5%;
   transform: translateY(-50%);
   transform: translateX(-50%);
+  z-index: -10;
 `
 
 export const GridItemMedia = styled.div`
