@@ -192,7 +192,17 @@ const HomeBanner = ({ onCursor }) => {
         <video src={lights} height="100%" width="100%" loop autoPlay muted />
       </Video>
 
-      <Dragger ref={dragger} onTouchStart={handleDraggerTouchStart}>
+      <Dragger
+        ref={dragger}
+        onTouchStart={handleDraggerTouchStart}
+        initial={{ x: 72, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 1,
+          delay: 3.5,
+          ease: [0.6, 0.05, 0.01, 0.9],
+        }}
+      >
         Drag
       </Dragger>
 

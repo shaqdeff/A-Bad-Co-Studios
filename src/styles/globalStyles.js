@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import { motion } from "framer-motion"
 
 export const Container = styled.div`
   flex-grow: 1;
@@ -161,7 +162,7 @@ export const Cursor = styled.div`
   }
 `
 
-export const Dragger = styled.div`
+export const Dragger = styled(motion.div)`
   display: block;
   position: absolute;
   top: 60%;

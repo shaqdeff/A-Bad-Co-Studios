@@ -8,7 +8,6 @@ export const FullLoader = styled(motion.div)`
   bottom: 0;
   right: 0;
   background: ${props => props.theme.background};
-  z-index: 100;
   color: ${props => props.theme.text};
   display: flex;
   align-items: center;
@@ -17,6 +16,7 @@ export const FullLoader = styled(motion.div)`
   text-transform: capitalize;
   justify-content: center;
   pointer-events: none;
+  z-index: 9999;
 
   .logo-container {
     display: flex;
