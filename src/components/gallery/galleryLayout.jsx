@@ -1,10 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
-// components
-import GalleryHeader from "./galleryHeader"
-import CustomCursor from "../customCursor"
 
 // styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -61,7 +57,6 @@ const GalleryLayout = ({ children }) => {
   }
 
   const { currentTheme } = useGlobalStateContext()
-  const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>

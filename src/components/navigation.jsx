@@ -18,7 +18,7 @@ import {
 import { navRoutes } from "../data"
 
 // assets
-import { beginnings, next, lights, colorist, wild } from "../assets"
+import { beginnings } from "../assets"
 
 const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
   const [revealVideo, setRevealVideo] = useState({

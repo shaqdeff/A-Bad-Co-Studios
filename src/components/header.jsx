@@ -11,13 +11,7 @@ import { Container, Flex, Logo, Menu, HeaderNav } from "../styles"
 // images
 import { lens, record } from "../images"
 
-// context
-import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
-
 const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
-  const dispatch = useGlobalDispatchContext()
-  const { currentTheme } = useGlobalStateContext()
-
   const blinkingAnimation = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },

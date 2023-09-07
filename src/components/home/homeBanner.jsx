@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 
 // hooks
 import { useWindowSize } from "../../hooks"
@@ -33,7 +33,6 @@ const HomeBanner = ({ onCursor }) => {
     e.preventDefault()
     drawing.current = true
 
-    const touch = e.touches[0]
     const canvasRect = canvas.current.getBoundingClientRect()
     const draggerCenterX =
       dragger.current.offsetLeft + dragger.current.offsetWidth / 2
@@ -76,10 +75,6 @@ const HomeBanner = ({ onCursor }) => {
 
       const pointerOffsetX = draggerWidth / 2 - lineWidth / 2
       const pointerOffsetY = draggerHeight / 2 - lineWidth / 2
-
-      const draggerOffsetX = (draggerWidth - lineWidth) / 2
-
-      const draggerOffsetY = Math.max((draggerHeight - lineWidth) / 2, 1)
 
       dragger.current.style.left = `${draggerCenterX - pointerOffsetX}px`
       dragger.current.style.top = `${draggerCenterY - pointerOffsetY}px`

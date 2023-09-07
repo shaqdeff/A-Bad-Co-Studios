@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Loadable from "react-loadable"
 
 // components
@@ -26,7 +26,7 @@ const GalleryLazy = Loadable({
 })
 
 const Gallery = props => {
-  const { currentTheme, cursorStyles } = useGlobalStateContext()
+  const { cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
   const [gridVisible, setGridVisible] = useState(true)
 
