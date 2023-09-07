@@ -14,9 +14,16 @@ import { defaultTransition } from "../../utils"
 type ImageProps = {
   element: DataType
   index: number
+  handleImageHover: (color: string) => void
+  isGridContent: boolean
 }
 
-const ImageLink = ({ index, element }: ImageProps) => {
+const ImageLink = ({
+  index,
+  element,
+  handleImageHover,
+  isGridContent,
+}: ImageProps) => {
   const navigateTo = () => {
     navigate(element.slug)
   }
@@ -28,6 +35,11 @@ const ImageLink = ({ index, element }: ImageProps) => {
         src={element.cover}
         layoutId={`container-${index}`}
         transition={defaultTransition}
+        whileHover={isGridContent ? { scale: 1.05 } : {}}
+        onMouseEnter={
+          isGridContent ? () => handleImageHover(element.color) : () => {}
+        }
+        onMouseLeave={isGridContent ? () => handleImageHover("") : () => {}}
       />
     </GridItemMedia>
   )
