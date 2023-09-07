@@ -11,8 +11,3 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
 export const wrapRootElement = ({ element }) => (
   <GlobalProvider>{element}</GlobalProvider>
 )
-
-// Wrap pages in component
-// export const wrapPageElement = ({ element, props }) => {
-//   return <Layout {...props}>{element}</Layout>
-// }
