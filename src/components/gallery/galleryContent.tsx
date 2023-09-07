@@ -95,7 +95,30 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
         const initialScrollPercent = Math.max(45, 0)
         const initialScrollPosition = (initialScrollPercent * listWidth) / 100
 
-        listContent.scrollLeft = initialScrollPosition
+        const scrollDistance = initialScrollPosition - listContent.scrollLeft
+
+        // Set up a scroll animation
+        const animationDuration = 1.5
+        const animationFrames = 60
+        const scrollStep =
+          scrollDistance / (animationDuration * animationFrames)
+        let currentScroll = listContent.scrollLeft
+
+        const scrollAnimation = () => {
+          if (
+            (scrollDistance > 0 && currentScroll < initialScrollPosition) ||
+            (scrollDistance < 0 && currentScroll > initialScrollPosition)
+          ) {
+            currentScroll += scrollStep
+            listContent.scrollLeft = currentScroll
+            requestAnimationFrame(scrollAnimation)
+          } else {
+            listContent.scrollLeft = initialScrollPosition
+          }
+        }
+
+        // Start the scroll animation
+        scrollAnimation()
 
         dragger.style.left = `${initialScrollPercent}%`
         scrollPercent = initialScrollPercent
@@ -196,17 +219,17 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
                   custom={index}
                 >
                   <ThumbnailWrapper
-                    whileHover={{
-                      scale: [0.95, 1.05],
-                    }}
                     transition={{
-                      duration: 0.5,
+                      delay: 0.5,
                     }}
-                    onMouseEnter={() => handleImageHover(element.color)}
-                    onMouseLeave={() => setHoveredColor("")}
                   >
                     <div>
-                      <ImageLink element={element} index={index} />
+                      <ImageLink
+                        element={element}
+                        index={index}
+                        handleImageHover={handleImageHover}
+                        isGridContent={true}
+                      />
                     </div>
                   </ThumbnailWrapper>
                 </motion.div>
@@ -227,7 +250,12 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
             <ListContent ref={listContentRef}>
               {mapData.map((element, index) => (
                 <motion.div className="element">
-                  <ImageLink element={element} index={index} />
+                  <ImageLink
+                    element={element}
+                    index={index}
+                    handleImageHover={handleImageHover}
+                    isGridContent={false}
+                  />
                 </motion.div>
               ))}
             </ListContent>
