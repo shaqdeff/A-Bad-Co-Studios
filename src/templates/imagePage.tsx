@@ -11,7 +11,7 @@ import { DataType } from "../components/gallery/galleryContent"
 import { ImgPageContent, ImgWrapper } from "../styles/"
 
 // context
-// import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
+import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
 
 // utils
 import { defaultTransition } from "../utils"
@@ -36,12 +36,12 @@ const variants: Variants = {
 }
 
 const ImagePage = ({ pageContext }: ImageProps) => {
-  // const { cursorStyles } = useGlobalStateContext()
-  // const dispatch = useGlobalDispatchContext()
+  const { cursorStyles } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
 
   const onCursor = cursorType => {
-    // cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
-    // dispatch({ type: "CURSOR_TYPE", cursorType: cursorType })
+    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
+    dispatch({ type: "CURSOR_TYPE", cursorType: cursorType })
   }
 
   const control = useAnimation()
