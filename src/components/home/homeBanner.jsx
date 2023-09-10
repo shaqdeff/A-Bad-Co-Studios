@@ -20,109 +20,52 @@ import { useGlobalStateContext } from "../../context"
 import { lights } from "../../assets"
 
 const HomeBanner = ({ onCursor }) => {
+  // Get the window size using a custom hook
   const size = useWindowSize()
+
+  // Get the current theme from the global state context
   const { currentTheme } = useGlobalStateContext()
+
+  // Create a reference to the canvas element
   const canvas = useRef(null)
-  const dragger = useRef(null)
+
+  // Create a reference to track if drawing is in progress
   const drawing = useRef(false)
+
+  // Create references to store the last drawn position
   const lastX = useRef(0)
   const lastY = useRef(0)
-  const lastPosition = useRef({ x: 0, y: 0 })
-
-  const handleDraggerTouchStart = e => {
-    e.preventDefault()
-    drawing.current = true
-
-    const canvasRect = canvas.current.getBoundingClientRect()
-    const draggerCenterX =
-      dragger.current.offsetLeft + dragger.current.offsetWidth / 2
-    const draggerCenterY =
-      dragger.current.offsetTop + dragger.current.offsetHeight / 2
-
-    const lineWidth = 95
-    lastPosition.current = {
-      x: draggerCenterX - canvasRect.left - lineWidth / 2,
-      y: draggerCenterY - canvasRect.top - lineWidth / 2,
-    }
-  }
-
-  const handleDraggerTouchMove = e => {
-    if (!drawing.current) return
-
-    const touch = e.touches[0]
-    const currentX = touch.clientX - canvas.current.getBoundingClientRect().left
-    const currentY = touch.clientY - canvas.current.getBoundingClientRect().top
-
-    const draggerWidth = dragger.current.offsetWidth
-    const draggerHeight = dragger.current.offsetHeight
-    const lineWidth = 95
-
-    const draggerCenterX = currentX - draggerWidth / 2
-    const draggerCenterY = currentY - draggerHeight / 2
-
-    const drawingCtx = canvas.current.getContext("2d")
-
-    requestAnimationFrame(() => {
-      drawingCtx.lineJoin = "round"
-      drawingCtx.globalCompositeOperation = "destination-out"
-      drawingCtx.moveTo(lastPosition.current.x, lastPosition.current.y)
-      drawingCtx.lineTo(currentX, currentY)
-      drawingCtx.closePath()
-      drawingCtx.lineWidth = lineWidth
-      drawingCtx.stroke()
-
-      lastPosition.current = { x: currentX, y: currentY }
-
-      const pointerOffsetX = draggerWidth / 2 - lineWidth / 2
-      const pointerOffsetY = draggerHeight / 2 - lineWidth / 2
-
-      dragger.current.style.left = `${draggerCenterX - pointerOffsetX}px`
-      dragger.current.style.top = `${draggerCenterY - pointerOffsetY}px`
-    })
-  }
-
-  const handleDraggerTouchEnd = () => {
-    drawing.current = false
-  }
-
-  const throttle = (func, delay) => {
-    let timeoutId
-    return (...args) => {
-      if (!timeoutId) {
-        timeoutId = setTimeout(() => {
-          func(...args)
-          timeoutId = null
-        }, delay)
-      }
-    }
-  }
-
-  const handleTouchMoveThrottled = throttle(handleDraggerTouchMove, 4)
 
   useEffect(() => {
+    // Get the rendering canvas element and its context
     const renderingElement = canvas.current
     const renderingCtx = renderingElement.getContext("2d")
 
-    renderingCtx.clearRect(0, 0, size.width, size.height)
+    // Set the canvas background color based on the current theme
     renderingCtx.globalCompositeOperation = "source-over"
-    renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#f4f4f6"
+    renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#e0e0e0"
     renderingCtx.fillRect(0, 0, size.width, size.height)
-    drawing.current = false
 
+    // Event handler for when the mouse is over the canvas
     const handleMouseOver = e => {
       drawing.current = true
       lastX.current = e.pageX - renderingElement.offsetLeft
       lastY.current = e.pageY - renderingElement.offsetTop
     }
 
+    // Event handler for when the mouse button is released
     const handleMouseUp = () => {
       drawing.current = false
     }
 
+    // Event handler for mouse move
     const handleMouseMoveEvent = e => {
       if (!drawing.current) return
+
       const currentX = e.pageX - renderingElement.offsetLeft
       const currentY = e.pageY - renderingElement.offsetTop
+
+      // Get the drawing context and set properties for drawing
       const drawingCtx = renderingCtx
       drawingCtx.globalCompositeOperation = "destination-out"
       drawingCtx.lineJoin = "round"
@@ -131,37 +74,23 @@ const HomeBanner = ({ onCursor }) => {
       drawingCtx.closePath()
       drawingCtx.lineWidth = 120
       drawingCtx.stroke()
+
+      // Update the last drawn position
       lastX.current = currentX
       lastY.current = currentY
     }
 
-    const cleanup = () => {
-      renderingElement.removeEventListener("mouseover", handleMouseOver)
-      renderingElement.removeEventListener("mouseup", handleMouseUp)
-      renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
-      if (dragger.current) {
-        dragger.current.removeEventListener(
-          "touchstart",
-          handleDraggerTouchStart
-        )
-        dragger.current.removeEventListener(
-          "touchmove",
-          handleTouchMoveThrottled
-        )
-        dragger.current.removeEventListener("touchend", handleDraggerTouchEnd)
-      }
-    }
-
+    // Add event listeners for mouse interactions
     renderingElement.addEventListener("mouseover", handleMouseOver)
     renderingElement.addEventListener("mouseup", handleMouseUp)
     renderingElement.addEventListener("mousemove", handleMouseMoveEvent)
-    if (dragger.current) {
-      dragger.current.addEventListener("touchstart", handleDraggerTouchStart)
-      dragger.current.addEventListener("touchmove", handleTouchMoveThrottled)
-      dragger.current.addEventListener("touchend", handleDraggerTouchEnd)
-    }
 
-    return cleanup
+    // Clean up event listeners when the component is unmounted
+    return () => {
+      renderingElement.removeEventListener("mouseover", handleMouseOver)
+      renderingElement.removeEventListener("mouseup", handleMouseUp)
+      renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
+    }
   }, [currentTheme, size.width, size.height])
 
   const parent = {
@@ -191,13 +120,13 @@ const HomeBanner = ({ onCursor }) => {
         <video src={lights} height="100%" width="100%" loop autoPlay muted />
       </Video>
 
-      <Dragger ref={dragger} onTouchStart={handleDraggerTouchStart}>
+      {/* <Dragger ref={dragger} onTouchStart={handleDraggerTouchStart}>
         Drag
-      </Dragger>
+      </Dragger> */}
 
       <Canvas
-        height={size.height || "100vh"}
-        width={size.width || "100vw"}
+        height={size.height}
+        width={size.width}
         ref={canvas}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
