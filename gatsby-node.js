@@ -1,4 +1,4 @@
-import React from "react"
+const React = require("react");
 
 import { GlobalProvider } from "./src/context/globalContext"
 
