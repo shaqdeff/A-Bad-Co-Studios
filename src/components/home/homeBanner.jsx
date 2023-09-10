@@ -91,7 +91,7 @@ const HomeBanner = ({ onCursor }) => {
       renderingElement.removeEventListener("mouseup", handleMouseUp)
       renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
     }
-  }, [currentTheme, size.width, size.height])
+  }, [currentTheme])
 
   const parent = {
     initial: { y: 800 },
@@ -121,8 +121,8 @@ const HomeBanner = ({ onCursor }) => {
       </Video>
 
       <Canvas
-        height="100vh"
-        width="100vw"
+        height={size.height}
+        width={size.width}
         ref={canvas}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
