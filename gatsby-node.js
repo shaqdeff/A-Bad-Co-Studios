@@ -1,7 +1,9 @@
-const React = require("react");
-
-import { GlobalProvider } from "./src/context/globalContext.mjs"
-
-export const wrapRootElement = ({ element }) => (
-  <GlobalProvider>{element}</GlobalProvider>
-)
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions
+  createPage({
+    path: "/using-dsg",
+    component: require.resolve("./src/templates/using-dsg.js"),
+    context: {},
+    defer: true,
+  })
+}

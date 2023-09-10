@@ -1,6 +1,6 @@
 import {
   useGlobalDispatchContext,
   useGlobalStateContext,
-} from "./globalContext.mjs"
+} from "./globalContext"
 
 export { useGlobalDispatchContext, useGlobalStateContext }
