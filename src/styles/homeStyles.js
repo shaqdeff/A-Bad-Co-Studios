@@ -7,6 +7,7 @@ export const Banner = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 296px;
+  /* overflow-x: hidden; */
 `
 
 export const Video = styled.div`

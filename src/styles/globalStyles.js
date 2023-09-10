@@ -179,8 +179,11 @@ export const Dragger = styled(motion.div)`
   font-size: 19px;
   font-weight: 800;
   text-align: center;
-  transform: rotate(33deg);
   z-index: 999;
+
+  span {
+    transform: rotate(33deg);
+  }
 
   @media (min-width: 768px) {
     display: none;
