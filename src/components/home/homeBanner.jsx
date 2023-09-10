@@ -120,13 +120,9 @@ const HomeBanner = ({ onCursor }) => {
         <video src={lights} height="100%" width="100%" loop autoPlay muted />
       </Video>
 
-      {/* <Dragger ref={dragger} onTouchStart={handleDraggerTouchStart}>
-        Drag
-      </Dragger> */}
-
       <Canvas
         height="100vh"
-        width= width="100vw"
+        width="100vw"
         ref={canvas}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
