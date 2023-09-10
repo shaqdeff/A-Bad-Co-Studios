@@ -101,10 +101,13 @@ const HomeBanner = ({ onCursor }) => {
 
   useEffect(() => {
     const renderingElement = canvas.current
-    const renderingCtx = renderingElement.getContext("2d")
+    let drawingElement = renderingElement.cloneNode()
+
+    let drawingCtx = drawingElement.getContext("2d")
+    let renderingCtx = renderingElement.getContext("2d")
 
     renderingCtx.clearRect(0, 0, size.width, size.height)
-    renderingCtx.globalCompositeOperation = "source-over"
+    renderingCtx.globalCompositeOperation = "copy"
     renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#f4f4f6"
     renderingCtx.fillRect(0, 0, size.width, size.height)
     drawing.current = false
@@ -123,8 +126,8 @@ const HomeBanner = ({ onCursor }) => {
       if (!drawing.current) return
       const currentX = e.pageX - renderingElement.offsetLeft
       const currentY = e.pageY - renderingElement.offsetTop
-      const drawingCtx = renderingCtx
-      drawingCtx.globalCompositeOperation = "destination-out"
+      drawingCtx.globalCompositeOperation = "copy"
+      renderingCtx.globalCompositeOperation = "destination-out"
       drawingCtx.lineJoin = "round"
       drawingCtx.moveTo(lastX.current, lastY.current)
       drawingCtx.lineTo(currentX, currentY)
@@ -133,6 +136,8 @@ const HomeBanner = ({ onCursor }) => {
       drawingCtx.stroke()
       lastX.current = currentX
       lastY.current = currentY
+
+      renderingCtx.drawImage(drawingElement, 0, 0)
     }
 
     const cleanup = () => {
@@ -162,7 +167,7 @@ const HomeBanner = ({ onCursor }) => {
     }
 
     return cleanup
-  }, [currentTheme, size.width, size.height])
+  }, [currentTheme, size])
 
   const parent = {
     initial: { y: 800 },
