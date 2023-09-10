@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "A Bad Co",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "This is the official website for A Bad Co Studios",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Shaquille Ndunda <shaquillendunda@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
