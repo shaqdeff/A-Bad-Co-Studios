@@ -3,8 +3,8 @@ import { useState, useEffect } from "react"
 export default function useWindowSize() {
   function getSize() {
     return {
-      width: typeof window !== "undefined" ? window.innerWidth : 0,
-      height: typeof window !== "undefined" ? window.innerHeight : 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
     }
   }
 
@@ -15,15 +15,8 @@ export default function useWindowSize() {
       setWindowSize(getSize())
     }
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize)
-    }
-
-    return () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("resize", handleResize)
-      }
-    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   return windowSize
