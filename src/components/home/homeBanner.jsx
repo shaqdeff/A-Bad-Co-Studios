@@ -125,8 +125,8 @@ const HomeBanner = ({ onCursor }) => {
       </Dragger> */}
 
       <Canvas
-        height={size.height}
-        width={size.width}
+        height="100vh"
+        width= width="100vw"
         ref={canvas}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
