@@ -11,20 +11,8 @@ import { Container, Flex, Logo, Menu, HeaderNav } from "../styles"
 // images
 import { lens, record } from "../images"
 
-// context
-import { useGlobalStateContext, useGlobalDispatchContext } from "../context"
 
 const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
-  const dispatch = useGlobalDispatchContext()
-  const { currentTheme } = useGlobalStateContext()
-
-  const toggleTheme = () => {
-    if (currentTheme === "light") {
-      dispatch({ type: "TOGGLE_THEME", theme: "dark" })
-    } else {
-      dispatch({ type: "TOGGLE_THEME", theme: "light" })
-    }
-  }
 
   const blinkingAnimation = {
     hidden: { opacity: 0 },
@@ -50,15 +38,12 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
             >
               <Link to="/">A BAD C</Link>
               <span
-                onMouseEnter={() => onCursor("pointer")}
-                onMouseLeave={onCursor}
               >
                 <Link to="/">
                   <img
                     src={lens}
                     alt="lens"
                     className="lens"
-                    // onClick={toggleTheme}
                   />
                 </Link>
               </span>
