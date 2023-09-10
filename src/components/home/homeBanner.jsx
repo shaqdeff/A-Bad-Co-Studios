@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from "react"
+import React, { useEffect, useRef } from "react"
 
 // hooks
 import { useWindowSize } from "../../hooks"
@@ -196,8 +196,8 @@ const HomeBanner = ({ onCursor }) => {
       </Dragger>
 
       <Canvas
-        height={size.height || 600} 
-        width={size.width || 800}
+        height={size.height || "100vh"}
+        width={size.width || "100vw"}
         ref={canvas}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
