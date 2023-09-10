@@ -3,6 +3,7 @@
   "private": true,
   "description": "This is the official website for A Bad Co Studios",
   "version": "0.1.0",
+  "type": "module",
   "author": "Shaquille Ndunda <shaquillendunda@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
