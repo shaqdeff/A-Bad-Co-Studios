@@ -20,77 +20,58 @@ import { useGlobalStateContext } from "../../context"
 import { lights } from "../../assets"
 
 const HomeBanner = ({ onCursor }) => {
-  // Get the window size using a custom hook
   const size = useWindowSize()
-
-  // Get the current theme from the global state context
   const { currentTheme } = useGlobalStateContext()
-
-  // Create a reference to the canvas element
-  const canvas = useRef(null)
-
-  // Create a reference to track if drawing is in progress
-  const drawing = useRef(false)
-
-  // Create references to store the last drawn position
-  const lastX = useRef(0)
-  const lastY = useRef(0)
-
+  let canvas = useRef(null)
   useEffect(() => {
-    // Get the rendering canvas element and its context
-    const renderingElement = canvas.current
-    const renderingCtx = renderingElement.getContext("2d")
+    let renderingElement = canvas.current
+    // create an offscreen canvas only for the drawings
+    let drawingElement = renderingElement.cloneNode()
+    let drawingCtx = drawingElement.getContext("2d")
+    let renderingCtx = renderingElement.getContext("2d")
+    let lastX
+    let lastY
+    let moving = false
 
-    // Set the canvas background color based on the current theme
     renderingCtx.globalCompositeOperation = "source-over"
-    renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#e0e0e0"
+    renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#f4f4f6"
     renderingCtx.fillRect(0, 0, size.width, size.height)
 
-    // Event handler for when the mouse is over the canvas
-    const handleMouseOver = e => {
-      drawing.current = true
-      lastX.current = e.pageX - renderingElement.offsetLeft
-      lastY.current = e.pageY - renderingElement.offsetTop
-    }
+    renderingElement.addEventListener("mouseover", ev => {
+      moving = true
+      lastX = ev.pageX - renderingElement.offsetLeft
+      lastY = ev.pageY - renderingElement.offsetTop
+    })
 
-    // Event handler for when the mouse button is released
-    const handleMouseUp = () => {
-      drawing.current = false
-    }
+    renderingElement.addEventListener("click", ev => {
+      moving = true
+      lastX = ev.pageX - renderingElement.offsetLeft
+      lastY = ev.pageY - renderingElement.offsetTop
+    })
 
-    // Event handler for mouse move
-    const handleMouseMoveEvent = e => {
-      if (!drawing.current) return
+    renderingElement.addEventListener("mouseup", ev => {
+      moving = false
+      lastX = ev.pageX - renderingElement.offsetLeft
+      lastY = ev.pageY - renderingElement.offsetTop
+    })
 
-      const currentX = e.pageX - renderingElement.offsetLeft
-      const currentY = e.pageY - renderingElement.offsetTop
-
-      // Get the drawing context and set properties for drawing
-      const drawingCtx = renderingCtx
-      drawingCtx.globalCompositeOperation = "destination-out"
-      drawingCtx.lineJoin = "round"
-      drawingCtx.moveTo(lastX.current, lastY.current)
-      drawingCtx.lineTo(currentX, currentY)
-      drawingCtx.closePath()
-      drawingCtx.lineWidth = 120
-      drawingCtx.stroke()
-
-      // Update the last drawn position
-      lastX.current = currentX
-      lastY.current = currentY
-    }
-
-    // Add event listeners for mouse interactions
-    renderingElement.addEventListener("mouseover", handleMouseOver)
-    renderingElement.addEventListener("mouseup", handleMouseUp)
-    renderingElement.addEventListener("mousemove", handleMouseMoveEvent)
-
-    // Clean up event listeners when the component is unmounted
-    return () => {
-      renderingElement.removeEventListener("mouseover", handleMouseOver)
-      renderingElement.removeEventListener("mouseup", handleMouseUp)
-      renderingElement.removeEventListener("mousemove", handleMouseMoveEvent)
-    }
+    renderingElement.addEventListener("mousemove", ev => {
+      if (moving) {
+        drawingCtx.globalCompositeOperation = "source-over"
+        renderingCtx.globalCompositeOperation = "destination-out"
+        let currentX = ev.pageX - renderingElement.offsetLeft
+        let currentY = ev.pageY - renderingElement.offsetTop
+        drawingCtx.lineJoin = "round"
+        drawingCtx.moveTo(lastX, lastY)
+        drawingCtx.lineTo(currentX, currentY)
+        drawingCtx.closePath()
+        drawingCtx.lineWidth = 120
+        drawingCtx.stroke()
+        lastX = currentX
+        lastY = currentY
+        renderingCtx.drawImage(drawingElement, 0, 0)
+      }
+    })
   }, [currentTheme])
 
   const parent = {
