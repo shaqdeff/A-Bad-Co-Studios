@@ -8,7 +8,7 @@ export const FullLoader = styled(motion.div)`
   bottom: 0;
   right: 0;
   background: ${props => props.theme.background};
-  z-index: 100;
+  z-index: 1000;
   color: ${props => props.theme.text};
   display: flex;
   align-items: center;
