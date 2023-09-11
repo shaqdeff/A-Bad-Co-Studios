@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 
 // hooks
 import { useWindowSize } from "../../hooks"
@@ -33,7 +33,6 @@ const HomeBanner = ({ onCursor }) => {
     e.preventDefault()
     drawing.current = true
 
-    const touch = e.touches[0]
     const canvasRect = canvas.current.getBoundingClientRect()
     const draggerCenterX =
       dragger.current.offsetLeft + dragger.current.offsetWidth / 2
@@ -77,10 +76,6 @@ const HomeBanner = ({ onCursor }) => {
       const pointerOffsetX = draggerWidth / 2 - lineWidth / 2
       const pointerOffsetY = draggerHeight / 2 - lineWidth / 2
 
-      const draggerOffsetX = (draggerWidth - lineWidth) / 2
-
-      const draggerOffsetY = Math.max((draggerHeight - lineWidth) / 2, 1)
-
       dragger.current.style.left = `${draggerCenterX - pointerOffsetX}px`
       dragger.current.style.top = `${draggerCenterY - pointerOffsetY}px`
     })
@@ -106,10 +101,13 @@ const HomeBanner = ({ onCursor }) => {
 
   useEffect(() => {
     const renderingElement = canvas.current
-    const renderingCtx = renderingElement.getContext("2d")
+    let drawingElement = renderingElement.cloneNode()
+
+    let drawingCtx = drawingElement.getContext("2d")
+    let renderingCtx = renderingElement.getContext("2d")
 
     renderingCtx.clearRect(0, 0, size.width, size.height)
-    renderingCtx.globalCompositeOperation = "source-over"
+    renderingCtx.globalCompositeOperation = "copy"
     renderingCtx.fillStyle = currentTheme === "dark" ? "#0a0a0a" : "#f4f4f6"
     renderingCtx.fillRect(0, 0, size.width, size.height)
     drawing.current = false
@@ -128,8 +126,8 @@ const HomeBanner = ({ onCursor }) => {
       if (!drawing.current) return
       const currentX = e.pageX - renderingElement.offsetLeft
       const currentY = e.pageY - renderingElement.offsetTop
-      const drawingCtx = renderingCtx
-      drawingCtx.globalCompositeOperation = "destination-out"
+      drawingCtx.globalCompositeOperation = "copy"
+      renderingCtx.globalCompositeOperation = "destination-out"
       drawingCtx.lineJoin = "round"
       drawingCtx.moveTo(lastX.current, lastY.current)
       drawingCtx.lineTo(currentX, currentY)
@@ -138,6 +136,8 @@ const HomeBanner = ({ onCursor }) => {
       drawingCtx.stroke()
       lastX.current = currentX
       lastY.current = currentY
+
+      renderingCtx.drawImage(drawingElement, 0, 0)
     }
 
     const cleanup = () => {
@@ -167,7 +167,7 @@ const HomeBanner = ({ onCursor }) => {
     }
 
     return cleanup
-  }, [currentTheme, size.width, size.height])
+  }, [currentTheme, size])
 
   const parent = {
     initial: { y: 800 },
@@ -197,8 +197,18 @@ const HomeBanner = ({ onCursor }) => {
         <video src={lights} height="100%" width="100%" loop autoPlay muted />
       </Video>
 
-      <Dragger ref={dragger} onTouchStart={handleDraggerTouchStart}>
-        Drag
+      <Dragger
+        ref={dragger}
+        onTouchStart={handleDraggerTouchStart}
+        initial={{ x: 72, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 1,
+          delay: 3.5,
+          ease: [0.6, 0.05, 0.01, 0.9],
+        }}
+      >
+        <span>Drag</span>
       </Dragger>
 
       <Canvas
