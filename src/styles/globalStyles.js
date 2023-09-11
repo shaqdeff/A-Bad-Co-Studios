@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import { motion } from "framer-motion"
 
 export const Container = styled.div`
   flex-grow: 1;
@@ -161,7 +162,7 @@ export const Cursor = styled.div`
   }
 `
 
-export const Dragger = styled.div`
+export const Dragger = styled(motion.div)`
   display: block;
   position: absolute;
   top: 60%;
@@ -178,8 +179,11 @@ export const Dragger = styled.div`
   font-size: 19px;
   font-weight: 800;
   text-align: center;
-  transform: rotate(33deg);
-  z-index: 999;
+  z-index: 99;
+
+  span {
+    transform: rotate(33deg);
+  }
 
   @media (min-width: 768px) {
     display: none;
