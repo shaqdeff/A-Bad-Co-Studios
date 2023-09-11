@@ -8,22 +8,7 @@ export const FullLoader = styled(motion.div)`
   bottom: 0;
   right: 0;
   background: ${props => props.theme.background};
-<<<<<<< HEAD:src/styles/loaderStyles.js
-<<<<<<< HEAD:src/styles/loaderStyles.js
-<<<<<<< HEAD
-<<<<<<< HEAD:src/styles/loaderStyles.js
-=======
-  z-index: 1000;
->>>>>>> 89e7224 (Update cursor and loader styles):src/styles/loaderStyles.ts
-=======
-  z-index: 1000;
->>>>>>> ddcdf90 (Fix conflicts)
-=======
-  z-index: 1000;
->>>>>>> 89e7224 (Update cursor and loader styles):src/styles/loaderStyles.ts
-=======
-  z-index: 1000;
->>>>>>> 89e7224 (Update cursor and loader styles):src/styles/loaderStyles.ts
+  z-index: 100;
   color: ${props => props.theme.text};
   display: flex;
   align-items: center;
