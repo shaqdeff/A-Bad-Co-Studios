@@ -9,6 +9,7 @@ export const FullLoader = styled(motion.div)`
   right: 0;
   background: ${props => props.theme.background};
 <<<<<<< HEAD:src/styles/loaderStyles.js
+<<<<<<< HEAD:src/styles/loaderStyles.js
 <<<<<<< HEAD
 <<<<<<< HEAD:src/styles/loaderStyles.js
 =======
@@ -17,6 +18,9 @@ export const FullLoader = styled(motion.div)`
 =======
   z-index: 1000;
 >>>>>>> ddcdf90 (Fix conflicts)
+=======
+  z-index: 1000;
+>>>>>>> 89e7224 (Update cursor and loader styles):src/styles/loaderStyles.ts
 =======
   z-index: 1000;
 >>>>>>> 89e7224 (Update cursor and loader styles):src/styles/loaderStyles.ts
