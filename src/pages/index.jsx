@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useAnimation } from "framer-motion"
 
 // components
@@ -13,6 +13,9 @@ import { defaultTransition } from "../utils"
 const IndexPage = props => {
   const { currentTheme, cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
+
+  const [isClient, setClient] = useState(false)
+  const key = isClient ? "client" : "server"
 
   const onCursor = cursorType => {
     cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
@@ -35,10 +38,20 @@ const IndexPage = props => {
     }
   })
 
+  useEffect(() => {
+    setClient(true)
+  }, [])
+
+  if (!isClient) {
+    return null
+  }
+
   return (
     <Layout>
       <Loader loaderControls={control} />
-      <HomeBanner onCursor={onCursor} />
+      <div key={key}>
+        <HomeBanner onCursor={onCursor} />
+      </div>
     </Layout>
   )
 }
