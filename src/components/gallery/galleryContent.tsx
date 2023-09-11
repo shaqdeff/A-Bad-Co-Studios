@@ -55,39 +55,31 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     setHoveredColor(color)
   }
 
-  useLayoutEffect(() => {
-    loaderControls.start({
-      opacity: 1,
-      transition: { defaultTransition },
-    })
+  // check if all images are loaded
+  const checkImagesLoaded = () => {
+    const imageElements = Array.from(document.querySelectorAll("img"))
+    return imageElements.every(img => img.complete)
+  }
+
+  // check if all images are loaded when the component mounts
+  useEffect(() => {
+    const allImagesLoaded = checkImagesLoaded()
+    if (allImagesLoaded) {
+      setImagesLoaded(true)
+    }
   }, [])
 
+  // check if images are loaded after the component is mounted
   useEffect(() => {
-    // Function to check if all images are loaded
     const checkImagesLoaded = () => {
       const imageElements = Array.from(document.querySelectorAll("img"))
       return imageElements.every(img => img.complete)
     }
 
-    // Check if all images are loaded
-    const handleImagesLoad = () => {
-      const allImagesLoaded = checkImagesLoaded()
-      if (allImagesLoaded) {
-        setImagesLoaded(true)
-      }
-    }
+    const allImagesLoaded = checkImagesLoaded()
 
-    if (checkImagesLoaded()) {
-      // Images are already loaded, set state to true
-      setImagesLoaded(true)
-    } else {
-      // Attach an event listener to the window's load event
-      window.addEventListener("load", handleImagesLoad)
-    }
-
-    return () => {
-      // Remove the event listener when unmounting
-      window.removeEventListener("load", handleImagesLoad)
+    if (!allImagesLoaded) {
+      setImagesLoaded(false)
     }
   }, [])
 
