@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { motion, useAnimation, useMotionValue, useSpring } from "framer-motion"
 import { useTheme } from "styled-components"
 
@@ -55,33 +55,62 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     setHoveredColor(color)
   }
 
-  // check if all images are loaded
-  const checkImagesLoaded = () => {
-    const imageElements = Array.from(document.querySelectorAll("img"))
-    return imageElements.every(img => img.complete)
-  }
-
-  // check if all images are loaded when the component mounts
+  // Preload images
   useEffect(() => {
-    const allImagesLoaded = checkImagesLoaded()
-    if (allImagesLoaded) {
-      setImagesLoaded(true)
+    const preloadImages = () => {
+      const imagePromises = mapData.map(element => {
+        return new Promise(resolve => {
+          const img = new Image()
+          img.src = element.cover
+          img.onload = resolve
+          img.onerror = resolve // Handle errors as well
+        })
+      })
+
+      Promise.all(imagePromises).then(() => {
+        setImagesLoaded(true)
+      })
     }
+
+    preloadImages()
   }, [])
 
-  // check if images are loaded after the component is mounted
+  // Animation sequence
   useEffect(() => {
-    const checkImagesLoaded = () => {
-      const imageElements = Array.from(document.querySelectorAll("img"))
-      return imageElements.every(img => img.complete)
+    const sequence = async () => {
+      await new Promise(resolve => setTimeout(resolve, 100))
+
+      await animation.set(index => ({
+        y: gridUtils[index % 5],
+        scale: 1.05,
+      }))
+
+      await animation.start(() => ({
+        y: 0,
+        transition: defaultTransition,
+      }))
+
+      await animation.start(() => ({
+        scale: 0.95,
+        transition: defaultTransition,
+      }))
+
+      updateGridVisible(false)
     }
 
-    const allImagesLoaded = checkImagesLoaded()
+    if (imagesLoaded) {
+      loaderControls.start({
+        opacity: 0,
+        transition: { defaultTransition },
+      })
 
-    if (!allImagesLoaded) {
-      setImagesLoaded(false)
+      sequence()
     }
-  }, [])
+
+    return () => {
+      loaderControls.stop()
+    }
+  }, [imagesLoaded, updateGridVisible, loaderControls])
 
   // horizontal scroll
   useEffect(() => {
@@ -162,44 +191,6 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
       window.removeEventListener("wheel", handleScroll)
     }
   }, [gridVisible])
-
-  // animation sequence
-  useEffect(() => {
-    const sequence = async () => {
-      await animation.set(index => ({
-        y: gridUtils[index % 5],
-        scale: 1.05,
-      }))
-
-      await animation.start(() => ({
-        y: 0,
-        transition: defaultTransition,
-      }))
-
-      await animation.start(() => ({
-        scale: 0.95,
-        transition: defaultTransition,
-      }))
-
-      updateGridVisible(false)
-    }
-
-    const timeoutId = setTimeout(() => {
-      if (imagesLoaded) {
-        loaderControls.start({
-          opacity: 0,
-          transition: { defaultTransition },
-        })
-
-        sequence()
-      }
-    }, 2500)
-
-    return () => {
-      clearTimeout(timeoutId)
-      loaderControls.stop()
-    }
-  }, [imagesLoaded, updateGridVisible])
 
   // parallax effect
   const handleGridParallax = (
