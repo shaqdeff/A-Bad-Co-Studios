@@ -49,10 +49,40 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
 
   const theme = useTheme()
   const [hoveredColor, setHoveredColor] = useState("")
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
   const handleImageHover = color => {
     setHoveredColor(color)
   }
+
+  useEffect(() => {
+    // Function to check if all images are loaded
+    const checkImagesLoaded = () => {
+      const imageElements = Array.from(document.querySelectorAll("img"))
+      return imageElements.every(img => img.complete)
+    }
+
+    // Check if all images are loaded
+    const handleImagesLoad = () => {
+      const allImagesLoaded = checkImagesLoaded()
+      if (allImagesLoaded) {
+        setImagesLoaded(true)
+      }
+    }
+
+    if (checkImagesLoaded()) {
+      // Images are already loaded, set state to true
+      setImagesLoaded(true)
+    } else {
+      // Attach an event listener to the window's load event
+      window.addEventListener("load", handleImagesLoad)
+    }
+
+    return () => {
+      // Remove the event listener when unmounting
+      window.removeEventListener("load", handleImagesLoad)
+    }
+  }, [])
 
   // horizontal scroll
   useEffect(() => {
@@ -193,7 +223,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
 
   return (
     <>
-      <Loader loaderControls={loaderControls} />
+      {!imagesLoaded && <Loader loaderControls={loaderControls} />}
       <Content
         style={{
           backgroundColor: hoveredColor ? hoveredColor : theme.background,
