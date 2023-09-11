@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Loadable from "react-loadable"
 
 // components
@@ -29,6 +29,7 @@ const Gallery = props => {
   const { cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
   const [gridVisible, setGridVisible] = useState(true)
+  const [isClient, setClient] = useState(false)
 
   const updateGridVisible = value => {
     setGridVisible(value)
@@ -40,6 +41,14 @@ const Gallery = props => {
   }
 
   const [toggleMenu, setToggleMenu] = useState(false)
+
+  useEffect(() => {
+    setClient(true)
+  }, [])
+
+  if (!isClient) {
+    return null
+  }
 
   return (
     <GalleryLayout>
