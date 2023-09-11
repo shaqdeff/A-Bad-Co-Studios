@@ -18,7 +18,7 @@ ${normalize}
 
 * {
   text-decoration: none;
-  ${"" /* cursor: none;  */}
+  cursor: none;
 }
 
 html {
