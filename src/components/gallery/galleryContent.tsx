@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { motion, useAnimation, useMotionValue, useSpring } from "framer-motion"
 import { useTheme } from "styled-components"
 
@@ -54,6 +54,13 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   const handleImageHover = color => {
     setHoveredColor(color)
   }
+
+  useLayoutEffect(() => {
+    loaderControls.start({
+      opacity: 1,
+      transition: { defaultTransition },
+    })
+  }, [])
 
   useEffect(() => {
     // Function to check if all images are loaded
@@ -186,19 +193,21 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     }
 
     const timeoutId = setTimeout(() => {
-      loaderControls.start({
-        opacity: 0,
-        transition: { defaultTransition },
-      })
+      if (imagesLoaded) {
+        loaderControls.start({
+          opacity: 0,
+          transition: { defaultTransition },
+        })
 
-      sequence()
+        sequence()
+      }
     }, 2500)
 
     return () => {
       clearTimeout(timeoutId)
       loaderControls.stop()
     }
-  }, [])
+  }, [imagesLoaded, updateGridVisible])
 
   // parallax effect
   const handleGridParallax = (
@@ -223,75 +232,77 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
 
   return (
     <>
-      {!imagesLoaded && <Loader loaderControls={loaderControls} />}
-      <Content
-        style={{
-          backgroundColor: hoveredColor ? hoveredColor : theme.background,
-          zIndex: 1,
-        }}
-      >
-        {gridVisible && (
-          <GridContent>
-            <GridElements
-              onMouseMove={handleGridParallax}
-              ref={gridRef}
-              transition={defaultTransition}
-              style={{
-                x: xMotion,
-                y: yMotion,
-              }}
-            >
-              {mapData.map((element, index) => (
-                <motion.div
-                  className="element"
-                  key={element.slug}
-                  animate={animation}
-                  custom={index}
-                >
-                  <ThumbnailWrapper
-                    transition={{
-                      delay: 0.5,
-                    }}
-                  >
-                    <div>
-                      <ImageLink
-                        element={element}
-                        index={index}
-                        handleImageHover={handleImageHover}
-                        isGridContent={true}
-                      />
-                    </div>
-                  </ThumbnailWrapper>
-                </motion.div>
-              ))}
-            </GridElements>
-          </GridContent>
-        )}
-
-        {!gridVisible && (
-          <>
-            <ContentDragger ref={draggerRef}>
-              <CircularShape
+      <Loader loaderControls={loaderControls} />
+      {imagesLoaded && (
+        <Content
+          style={{
+            backgroundColor: hoveredColor ? hoveredColor : theme.background,
+            zIndex: 1,
+          }}
+        >
+          {gridVisible && (
+            <GridContent>
+              <GridElements
+                onMouseMove={handleGridParallax}
+                ref={gridRef}
+                transition={defaultTransition}
                 style={{
-                  background: hoveredColor ? hoveredColor : theme.background,
+                  x: xMotion,
+                  y: yMotion,
                 }}
-              />
-            </ContentDragger>
-            <ListContent ref={listContentRef}>
-              {mapData.map((element, index) => (
-                <motion.div className="element">
-                  <ImageLink
-                    element={element}
-                    index={index}
-                    handleImageHover={handleImageHover}
-                    isGridContent={false}
-                  />
-                </motion.div>
-              ))}
-            </ListContent>
-          </>
-        )}
-      </Content>
+              >
+                {mapData.map((element, index) => (
+                  <motion.div
+                    className="element"
+                    key={element.slug}
+                    animate={animation}
+                    custom={index}
+                  >
+                    <ThumbnailWrapper
+                      transition={{
+                        delay: 0.5,
+                      }}
+                    >
+                      <div>
+                        <ImageLink
+                          element={element}
+                          index={index}
+                          handleImageHover={handleImageHover}
+                          isGridContent={true}
+                        />
+                      </div>
+                    </ThumbnailWrapper>
+                  </motion.div>
+                ))}
+              </GridElements>
+            </GridContent>
+          )}
+
+          {!gridVisible && (
+            <>
+              <ContentDragger ref={draggerRef}>
+                <CircularShape
+                  style={{
+                    background: hoveredColor ? hoveredColor : theme.background,
+                  }}
+                />
+              </ContentDragger>
+              <ListContent ref={listContentRef}>
+                {mapData.map((element, index) => (
+                  <motion.div className="element">
+                    <ImageLink
+                      element={element}
+                      index={index}
+                      handleImageHover={handleImageHover}
+                      isGridContent={false}
+                    />
+                  </motion.div>
+                ))}
+              </ListContent>
+            </>
+          )}
+        </Content>
+      )}
     </>
   )
 }
