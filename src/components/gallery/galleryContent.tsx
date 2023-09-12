@@ -63,7 +63,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
           const img = new Image()
           img.src = element.cover
           img.onload = resolve
-          img.onerror = resolve // Handle errors as well
+          img.onerror = resolve
         })
       })
 
@@ -75,7 +75,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     preloadImages()
   }, [])
 
-  // Animation sequence
+  // animation sequence
   useEffect(() => {
     const sequence = async () => {
       await new Promise(resolve => setTimeout(resolve, 100))
@@ -110,7 +110,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     return () => {
       loaderControls.stop()
     }
-  }, [imagesLoaded, updateGridVisible, loaderControls])
+  }, [imagesLoaded, loaderControls])
 
   // horizontal scroll
   useEffect(() => {
