@@ -32,7 +32,13 @@ export type DataType = {
 
 const gridUtils = [600, 400, 600, 800, 600]
 
-const GalleryContent = ({ gridVisible, updateGridVisible }) => {
+const GalleryContent = ({
+  gridVisible,
+  updateGridVisible,
+}: {
+  gridVisible: boolean
+  updateGridVisible: () => void
+}) => {
   const loaderControls = useAnimation()
   const animation = useAnimation()
   const mapData: DataType[] = Array.from(images)
@@ -51,7 +57,7 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
   const [hoveredColor, setHoveredColor] = useState("")
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
-  const handleImageHover = color => {
+  const handleImageHover = (color: React.SetStateAction<string>) => {
     setHoveredColor(color)
   }
 
@@ -117,7 +123,10 @@ const GalleryContent = ({ gridVisible, updateGridVisible }) => {
     const listContent = listContentRef.current
     const dragger = draggerRef.current
 
-    const handleScroll = event => {
+    const handleScroll = (event: {
+      deltaY: number
+      preventDefault: () => void
+    }) => {
       if (!gridVisible && listContent) {
         const listWidth = listContent.scrollWidth
         const draggerWidth = dragger ? dragger.offsetWidth : 0
